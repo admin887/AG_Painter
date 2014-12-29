@@ -70,6 +70,10 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CAG_PainterDlg::OnBnClickedOk)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_MOUSEMOVE()
+	//ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CAG_PainterDlg::OnTcnSelchangeTab1)
+	//ON_BN_CLICKED(IDC_DRAW2, &CAG_PainterDlg::OnBnClickedDraw2)
+	ON_BN_CLICKED(IDC_DRAW, &CAG_PainterDlg::OnBnClickedDraw)
+	ON_BN_CLICKED(IDC_MFCCOLORBUTTON3, &CAG_PainterDlg::OnBnClickedMfccolorbutton3)
 END_MESSAGE_MAP()
 
 
@@ -193,4 +197,29 @@ void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 	
 
 	
+}
+
+
+void CAG_PainterDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: Add your control notification handler code here
+	*pResult = 0;
+}
+
+
+void CAG_PainterDlg::OnBnClickedDraw2()
+{
+	// TODO: Add your control notification handler code here
+}
+
+
+void CAG_PainterDlg::OnBnClickedDraw()
+{
+	// TODO: Add your control notification handler code here
+}
+
+
+void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
+{
+	// TODO: Add your control notification handler code here
 }
