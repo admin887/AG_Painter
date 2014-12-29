@@ -119,6 +119,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="selector.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="ShapesFactory.h" />
     <ClInclude Include="ShapesGarage.h" />
     <ClInclude Include="stdafx.h" />
