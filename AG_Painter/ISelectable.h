@@ -1,3 +1,4 @@
+#include "stdafx.h"
 class ISelectable
 {
 private:
