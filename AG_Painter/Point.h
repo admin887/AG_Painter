@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Shape.h"
+#include "IShape.h"
 #include <Windows.h>
 #include <iostream>
 #pragma once
