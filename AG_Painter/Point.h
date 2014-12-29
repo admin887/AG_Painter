@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "IShape.h"
+#include "Shape.h"
 #include <Windows.h>
 #include <iostream>
 #pragma once
-class Point:public IShape
+class Point:public Shape
 {
 	private:
 		int x;
