@@ -3,7 +3,7 @@
 #include <Windows.h>
 #include <iostream>
 #pragma once
-class Point:public Shape
+class Point:public IShape
 {
 	private:
 		int x;
