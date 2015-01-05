@@ -109,7 +109,9 @@
     <ClInclude Include="Elipse.h" />
     <ClInclude Include="Eraser.h" />
     <ClInclude Include="IAction.h" />
+    <ClInclude Include="Colorable.h" />
     <ClInclude Include="ISelectable.h" />
+    <ClInclude Include="IWeightable.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Mover.h" />

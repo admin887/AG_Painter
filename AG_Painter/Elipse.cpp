@@ -1,23 +1,39 @@
 #include "stdafx.h"
 #include "Elipse.h"
 
-Elipse::Elipse(int newX1,int newY1,int newX2,int newY2,int newWeight,COLORREF newColor)
+Elipse::Elipse(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {
-	setX(newX1);
-	setY(newY1);
+	setP1(newP1);
+	setP2(newP2);
 	setWeight(newWeight);
-	setColor(newColor);
-	setX2(newX2);
-	setY2(newY2);
+	setColorOutside(newOutsideColor);
+	setColorInside(newInsideColor);
+
+}
+Elipse::Elipse(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
+{
+	Point *p1= new Point();
+	Point *p2= new Point();
+	p1->setX(newX1);
+	p1->setY(newY1);
+	p2->setX(newX2);
+	p2->setY(newY2);
+
+	setP1(*p1);
+	setP2(*p2);
+	
+	setWeight(newWeight);
+	setColorInside(newInsideColor);
+	setColorOutside(newOutsideColor);
+	
 }
 Elipse::Elipse(Elipse& e)
 {
-	setX(e.getX());
-	setY(e.getY());
+	setP1(e.getP1());
+	setP2(e.getP2());
 	setWeight(e.getWeight());
-	setColor(e.getColor());
-	setX2(e.getX2());
-	setY2(e.getY2());
+	setColorOutside(e.getColorOutside());
+	setColorInside(e.getColorInside());
 }
 
 Elipse::~Elipse(void)
@@ -25,40 +41,35 @@ Elipse::~Elipse(void)
 	
 }
 
-Elipse &Elipse::operator=(const Elipse &e)
+Elipse &Elipse::operator=(Elipse &r)
 {
-	setX(e.getX());
-	setY(e.getY());
-	setWeight(e.getWeight());
-	setColor(e.getColor());
-	setX2(e.getX2());
-	setY2(e.getY2());
+	setP1(r.getP1());
+	setP2(r.getP2());
+	setWeight(r.getWeight());
+	setColorOutside(r.getColorOutside());
+	setColorInside(r.getColorInside());
 	return *this;
 }
-int Elipse::getX2() const
-{
-	return x2;
-}
-int Elipse::getY2() const
-{
-	return y2;
-}
-void Elipse::setX2(const int newX2)
-{
-	if(newX2<0)
-		x2=0;
-	else
-		x2=newX2;
-}
-void Elipse::setY2(const int newY2)
-{
-	if(newY2<0)
-		y2=0;
-	else
-		y2=newY2;
-}
+
 void Elipse::Paint(CDC *dc)
 {
-	dc->MoveTo(getX(),getY());
-	dc->Ellipse(getX(),getY(),getX2(),getY2());
+	dc->MoveTo(getP1().getX(), getP1().getY());
+	dc->Ellipse(getP1().getX(), getP1().getY(),getP2().getX(), getP2().getY());
+}
+
+void Elipse::setP1(Point newP1)
+{
+	m_p1= newP1;
+}
+void Elipse::setP2(Point newP2)
+{
+	m_p2= newP2;
+}
+Point Elipse::getP1()
+{
+	return m_p1;
+}
+Point Elipse::getP2()
+{
+	return m_p2;
 }

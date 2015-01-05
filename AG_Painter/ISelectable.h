@@ -1,9 +1,9 @@
 #include "stdafx.h"
 class ISelectable
 {
-private:
-	bool isSelected;
+protected:
+	bool m_isSelected;
 public:
-	virtual bool getIsSelected()=0;
-	virtual void setIsSelected(bool)=0 ;
+	bool getIsSelected();
+	void setIsSelected(bool) ;
 };

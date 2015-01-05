@@ -13,6 +13,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{87c6c546-0a03-4d3b-a36b-62765a11b857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{68db7824-86c2-4c09-a7a9-f3dac29e364e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\General">
+      <UniqueIdentifier>{f4f410f6-5a97-4cf2-a5c1-7bc51c4e87b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{7cf22766-1c5d-4c47-8b1a-22a6a7555443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstract classes">
+      <UniqueIdentifier>{5de861cd-efff-46dd-9d42-0fe5df968ab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{e242dcf1-7bb2-4597-b90e-73bb9bab0443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\General">
+      <UniqueIdentifier>{d190d665-cd11-4905-abbc-56fbb5bbb647}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -39,59 +60,65 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ISelectable.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Elipse.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Elipse.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Rectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapesGarage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShapesFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Document.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IAction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Drawer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="selector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resizer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mover.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Deformer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Eraser.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Shape.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Colorable.h">
+      <Filter>Header Files\Abstract classes</Filter>
+    </ClInclude>
+    <ClInclude Include="ISelectable.h">
+      <Filter>Header Files\Abstract classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Deformer.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawer.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Eraser.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Mover.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Resizer.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotator.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="selector.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Tool.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Document.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapesFactory.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapesGarage.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="IAction.h">
+      <Filter>Header Files\Abstract classes</Filter>
+    </ClInclude>
+    <ClInclude Include="IWeightable.h">
+      <Filter>Header Files\Abstract classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,53 +131,53 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Elipse.cpp">
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Elipse.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapesGarage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShapesFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Document.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Drawer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="selector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Resizer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mover.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Deformer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Eraser.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="Shape.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Deformer.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawer.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Eraser.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Mover.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Resizer.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotator.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="selector.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Tool.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Document.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapesFactory.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapesGarage.cpp">
+      <Filter>Source Files\General</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

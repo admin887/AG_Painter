@@ -1,17 +1,22 @@
 #include "stdafx.h"
 #include "ISelectable.h"
+#include "Colorable.h"
+#include "IWeightable.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-class Shape : public ISelectable
+class Shape : public ISelectable, public IColorable, public IWeightable
 {
-private:
-	bool m_isSelected; //False
 public:
 	virtual void Paint(CDC *dc)=0 ;
-	virtual bool getIsSelected();
-	virtual void setIsSelected(bool) ;
-
+	bool getIsSelected();
+	void setIsSelected(bool) ;
+	COLORREF getColorInside();
+	COLORREF getColorOutside();
+	void setColorInside(COLORREF);
+	void setColorOutside(COLORREF);
+	int getWeight();
+	void setWeight(int);
 
 };

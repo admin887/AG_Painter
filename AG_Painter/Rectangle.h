@@ -3,19 +3,21 @@
 #include <Windows.h>
 #include <iostream>
 #pragma once
-class Rec:public Point
+class Rec:public Shape
 {
 	private:
-		int x2;
-		int y2;
+		Point m_p1;
+		Point m_p2;
 	public:
-		Rec(int=0,int=0,int=0,int=0,int=0,COLORREF=0);//default constructor
+		Rec(Point newP1, Point newP2,int newWeight=1, COLORREF=0, COLORREF=0);
+		Rec(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
 		Rec(Rec &);//copy constructor
 		~Rec();//destructor
-		Rec &operator=(const Rec &);
-		void setX2(int);
-		void setY2(int);
-		int getX2() const;
-		int getY2() const;
+		Rec &operator=( Rec &);
 		void Paint(CDC *dc);
+
+		void setP1(Point);
+		void setP2(Point);
+		Point getP1();
+		Point getP2();
 };

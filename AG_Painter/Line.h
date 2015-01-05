@@ -1,19 +1,20 @@
 #include "stdafx.h"
 #include "Point.h"
-class Line:public Point
+class Line:public Shape
 {
 private:
-	int m_X2;
-	int m_Y2;
+	Point start;
+	Point end;
 public:
-	Line(int=0, int=0, int=0,int= 0);
+	Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor);
+	Line(int=0, int=0, int=0,int= 0,int newWeight=1, COLORREF newColor=0);
 	Line(Line &l);
 	~Line(void);
 	
-	Line &operator=(const Line &);
-	int getX2() const;
-	int getY2() const;
-	void setX2(int newX2);
-	void setY2(int newY2);
+	Line &operator=(Line &);
+	Point getStartPoint();
+	Point getEndPoint();
+	void setStartPoint(Point newStart);
+	void setEndPoint(Point newEnd);
 	void Paint(CDC *dc);
 };
