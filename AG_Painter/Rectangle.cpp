@@ -62,10 +62,3 @@ void Rec::Paint(CDC *dc)
 	dc->MoveTo(getX(),getY());
 	dc->Rectangle(getX(),getY(),getX2(),getY2());
 }
-bool Rec::getIsSelected()
-{
-	return true;
-}
-void Rec::setIsSelected(bool newIsSelected)
-{
-}

@@ -62,10 +62,3 @@ void Elipse::Paint(CDC *dc)
 	dc->MoveTo(getX(),getY());
 	dc->Ellipse(getX(),getY(),getX2(),getY2());
 }
-bool Elipse::getIsSelected()
-{
-	return true;
-}
-void Elipse::setIsSelected(bool newIsSelected)
-{
-}

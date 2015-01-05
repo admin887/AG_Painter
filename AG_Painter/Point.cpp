@@ -82,11 +82,4 @@ void Point::Paint(CDC *dc)
 	dc->Ellipse(tempX-getWeight()/2,tempY-getWeight()/2,tempX+getWeight()/2,tempY+getWeight()/2);
 
 }
-bool Point::getIsSelected()
-{
-	return true;
-}
-void Point::setIsSelected(bool newIsSelected)
-{
-}
 

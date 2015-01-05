@@ -24,8 +24,6 @@ class Point:public Shape
 		int getWeight() const;
 		COLORREF getColor() const;
 		void Paint(CDC *dc);
-		bool getIsSelected();
-		void setIsSelected(bool);
 };
 
 enum Shapes {E_POINT, E_CIRCULE, E_RECTANGLE, E_LINE};

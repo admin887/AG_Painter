@@ -18,6 +18,4 @@ class Rec:public Point
 		int getX2() const;
 		int getY2() const;
 		void Paint(CDC *dc);
-		bool getIsSelected();
-		void setIsSelected(bool);
 };
