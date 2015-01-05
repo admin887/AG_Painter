@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "IShape.h"
+#include "Shape.h"
 #include <Windows.h>
 #include <iostream>
 #pragma once
-class Point:public IShape
+class Point:public Shape
 {
 	private:
 		int x;
@@ -27,3 +27,5 @@ class Point:public IShape
 		bool getIsSelected();
 		void setIsSelected(bool);
 };
+
+enum Shapes {E_POINT, E_CIRCULE, E_RECTANGLE, E_LINE};

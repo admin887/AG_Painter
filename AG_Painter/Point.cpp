@@ -16,7 +16,6 @@ Point::Point(Point &p)
 }
 Point::~Point()
 {
-
 }
 const Point &Point::operator=(const Point &p)
 {
@@ -90,3 +89,4 @@ bool Point::getIsSelected()
 void Point::setIsSelected(bool newIsSelected)
 {
 }
+

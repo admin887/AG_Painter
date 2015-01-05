@@ -6,10 +6,12 @@
 
 class Shape : public ISelectable
 {
+private:
+	bool m_isSelected; //False
 public:
 	virtual void Paint(CDC *dc)=0 ;
-	virtual bool getIsSelected()=0;
-	virtual void setIsSelected(bool)=0 ;
+	virtual bool getIsSelected();
+	virtual void setIsSelected(bool) ;
 
 
 };

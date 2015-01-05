@@ -159,10 +159,10 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	IShape *s = new Elipse(point.x,point.y,point.x+50,point.y+50);
-	IShape *r = new Rec(point.x,point.y,point.x+50,point.y+50);
-	IShape *p = new Point(point.x,point.y,10,RGB(0,0,255));
-	IShape *l = new Line(point.x,point.y,point.x+50,point.y+50);
+	Shape *s = new Elipse(point.x,point.y,point.x+50,point.y+50);
+	Shape *r = new Rec(point.x,point.y,point.x+50,point.y+50);
+	Shape *p = new Point(point.x,point.y,10,RGB(0,0,255));
+	Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
 
 	
 	CClientDC dc(this);

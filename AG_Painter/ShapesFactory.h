@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "IShape.h"
+#include "Shape.h"
 class ShapesFactory
 {
 private:
@@ -7,5 +7,5 @@ private:
 public:
 	~ShapesFactory();
 	ShapesFactory getInstance();
-	IShape CreateShape(char* Type);
+	Shape CreateShape(char* Type);
 };
