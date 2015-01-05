@@ -4,7 +4,7 @@
 #define new DEBUG_NEW
 #endif
 
-class IShape : public ISelectable
+class Shape : public ISelectable
 {
 public:
 	virtual void Paint(CDC *dc)=0 ;
