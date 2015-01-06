@@ -6,10 +6,11 @@
 #include "AG_Painter.h"
 #include "AG_PainterDlg.h"
 #include "afxdialogex.h"
-#include "Point.h"
-#include "Rectangle.h"
-#include "Elipse.h"
-#include "Line.h"
+//#include "Point.h"
+//#include "Rectangle.h"
+//#include "Elipse.h"
+//#include "Line.h"
+#include "Document.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -22,7 +23,7 @@ class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
-
+	
 // Dialog Data
 	enum { IDD = IDD_ABOUTBOX };
 
@@ -110,6 +111,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
+	
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -154,14 +156,15 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	Shape *s = new Elipse(point.x,point.y,point.x+50,point.y+50);
-	Shape *r = new Rec(point.x,point.y,point.x+50,point.y+50);
-	Shape *p = new Point(point.x,point.y,10,RGB(0,0,255));
-	Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
 
-	
-	CClientDC dc(this);
-	l->Paint(&dc);
+	//Shape *s = new Elipse(point.x,point.y,point.x+50,point.y+50);
+	//Shape *r = new Rec(point.x,point.y,point.x+50,point.y+50);
+	//Shape *p = new Point(point.x,point.y,10,RGB(0,0,255));
+	//Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
+
+	//
+	//CClientDC dc(this);
+	//l->Paint(&dc);
 
 
 
@@ -222,5 +225,5 @@ void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
 
 void CAG_PainterDlg::OnDrawElipse()
 {
-	// TODO: Add your command handler code here
+	
 }

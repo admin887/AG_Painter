@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+//nclude "Document.h"
 
 // CAG_PainterDlg dialog
 class CAG_PainterDlg : public CDialogEx
@@ -22,7 +22,7 @@ public:
 // Implementation
 protected:
 	HICON m_hIcon;
-
+	
 	// Generated message map functions
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
