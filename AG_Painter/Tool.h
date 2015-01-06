@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "IAction.h"
-#include "Shape.h"
 #pragma once
 class Tool: public IAction
 {
