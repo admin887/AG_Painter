@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Drawer.h"
+#pragma once;
 class Document
 {
 private:
