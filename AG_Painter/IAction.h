@@ -4,7 +4,7 @@
 class IAction
 {
 	public:
-		virtual void MouseDown(CDC,CPoint);
-		virtual void MouseUp(CDC,CPoint);
-		virtual void DoubleClick(CDC,CPoint);
+		virtual void MouseDown(CDC *dc,CPoint)=0;
+		virtual void MouseUp(CDC *dc,CPoint)=0;
+		virtual void DoubleClick(CDC *dc,CPoint)=0;
 };

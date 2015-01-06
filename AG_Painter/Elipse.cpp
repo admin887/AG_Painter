@@ -61,6 +61,6 @@ Elipse &Elipse::operator=(Elipse &r)
 void Elipse::Paint(CDC *dc)
 {
 	dc->MoveTo(getStartX(), getStartY());
-	dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
+	dc->Ellipse(getStartX(), getStartY(),getEndX(), getEndY());
 }
 

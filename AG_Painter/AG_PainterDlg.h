@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "document.h"
 //nclude "Document.h"
 
 // CAG_PainterDlg dialog
@@ -10,8 +11,9 @@ class CAG_PainterDlg : public CDialogEx
 {
 // Construction
 public:
-	CAG_PainterDlg(CWnd* pParent = NULL);	// standard constructor
 
+	CAG_PainterDlg(CWnd* pParent = NULL);	// standard constructor
+	
 // Dialog Data
 	enum { IDD = IDD_AG_PAINTER_DIALOG };
 
@@ -39,4 +41,8 @@ public:
 	afx_msg void OnBnClickedMfccolorbutton3();
 	afx_msg void OnBnClickedMfccolorbutton1();
 	afx_msg void OnDrawElipse();
+	Document thisDoc;
+	bool isPressed;
+	afx_msg void OnDrawRectangle();
+	afx_msg void OnDrawLine();
 };

@@ -5,12 +5,12 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 {
 	getSelectedShape()->setStartX(newPoint.x);
 	getSelectedShape()->setStartY(newPoint.y);
-	getSelectedShape()->Paint(dc);
+	//getSelectedShape()->Paint(dc);
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint)
 {
-	getSelectedShape()->setStartX(newPoint.x);
-	getSelectedShape()->setStartY(newPoint.y);
+	getSelectedShape()->setEndX(newPoint.x);
+	getSelectedShape()->setEndY(newPoint.y);
 	getSelectedShape()->Paint(dc);
 }
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)

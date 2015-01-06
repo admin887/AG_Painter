@@ -7,7 +7,7 @@ Drawer &Document::getDrawer()
 }
 void Document::setDrawer(Drawer &newDrawer)
 {
-	*m_drawer= newDrawer;
+	m_drawer= &newDrawer;
 }
 
 Shape &Document::getCurrentShape()
@@ -16,7 +16,8 @@ Shape &Document::getCurrentShape()
 }
 void Document::setCurrentShape(Shape &newShape)
 {
-	*currShape= newShape;
+	currShape= &newShape;
+	getDrawer().setSelectedShape(currShape);
 }
 Document &Document::operator=(Document &newDocument)
 {

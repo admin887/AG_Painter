@@ -7,9 +7,9 @@
 #include "AG_PainterDlg.h"
 #include "afxdialogex.h"
 //#include "Point.h"
-//#include "Rectangle.h"
-//#include "Elipse.h"
-//#include "Line.h"
+#include "Rectangle.h"
+#include "Elipse.h"
+#include "Line.h"
 #include "Document.h"
 
 #ifdef _DEBUG
@@ -55,6 +55,7 @@ END_MESSAGE_MAP()
 
 CAG_PainterDlg::CAG_PainterDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CAG_PainterDlg::IDD, pParent)
+	, isPressed(false)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -76,6 +77,8 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_DRAW, &CAG_PainterDlg::OnBnClickedDraw)
 	ON_BN_CLICKED(IDC_MFCCOLORBUTTON3, &CAG_PainterDlg::OnBnClickedMfccolorbutton3)
 	ON_COMMAND(ID_DRAW_ELIPSE, &CAG_PainterDlg::OnDrawElipse)
+	ON_COMMAND(ID_DRAW_RECTANGLE, &CAG_PainterDlg::OnDrawRectangle)
+	ON_COMMAND(ID_DRAW_LINE, &CAG_PainterDlg::OnDrawLine)
 END_MESSAGE_MAP()
 
 
@@ -163,12 +166,19 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	//Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
 
 	//
-	//CClientDC dc(this);
+	CClientDC dc(this);
 	//l->Paint(&dc);
-
-
-
-
+	
+		if(!isPressed)
+		{
+			thisDoc.getDrawer().MouseDown(&dc,point);
+			isPressed=true;
+		}
+		else
+		{
+			thisDoc.getDrawer().MouseUp(&dc,point);
+			isPressed=false;
+		}
 
 
 	//Point *p = new Point(point.x,point.y,10,RGB(0,0,255));
@@ -225,5 +235,37 @@ void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
 
 void CAG_PainterDlg::OnDrawElipse()
 {
+//	Document *thisDoc= new Document();
+	Elipse *e= new Elipse(50,50,50,50);
+	Drawer *d= new Drawer();
+
+
+	thisDoc.setDrawer(*d);
+	thisDoc.setCurrentShape(*e);
+
+	//thisDoc->setDrawer(*d);
+
 	
+}
+
+
+void CAG_PainterDlg::OnDrawRectangle()
+{
+	Rec *e= new Rec(50,50,50,50);
+	Drawer *d= new Drawer();
+
+
+	thisDoc.setDrawer(*d);
+	thisDoc.setCurrentShape(*e);
+}
+
+
+void CAG_PainterDlg::OnDrawLine()
+{
+	Line *e= new Line(50,50,50,50);
+	Drawer *d= new Drawer();
+
+
+	thisDoc.setDrawer(*d);
+	thisDoc.setCurrentShape(*e);
 }

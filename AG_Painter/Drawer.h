@@ -3,7 +3,8 @@
 #pragma once
 class Drawer: public Tool
 {
-	virtual void MouseDown(CDC*,CPoint);
-	virtual void MouseUp(CDC*,CPoint);
-	virtual void DoubleClick(CDC*,CPoint);
+public:
+		virtual void MouseDown(CDC *dc,CPoint);
+		virtual void MouseUp(CDC *dc,CPoint);
+		virtual void DoubleClick(CDC *dc,CPoint);
 };

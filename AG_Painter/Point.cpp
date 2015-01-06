@@ -42,7 +42,7 @@ const Point &Point::operator=(Point &p)
  
 void Point::Paint(CDC *dc)
 {
-	int i;
+	
 	int tempX=getStartX();
 	int tempY=getStartY();
 	dc->MoveTo(tempX,tempY);
