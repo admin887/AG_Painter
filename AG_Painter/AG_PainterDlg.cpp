@@ -74,6 +74,7 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	//ON_BN_CLICKED(IDC_DRAW2, &CAG_PainterDlg::OnBnClickedDraw2)
 	ON_BN_CLICKED(IDC_DRAW, &CAG_PainterDlg::OnBnClickedDraw)
 	ON_BN_CLICKED(IDC_MFCCOLORBUTTON3, &CAG_PainterDlg::OnBnClickedMfccolorbutton3)
+	ON_COMMAND(ID_DRAW_ELIPSE, &CAG_PainterDlg::OnDrawElipse)
 END_MESSAGE_MAP()
 
 
@@ -216,4 +217,10 @@ void CAG_PainterDlg::OnBnClickedDraw()
 void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
 {
 	// TODO: Add your control notification handler code here
+}
+
+
+void CAG_PainterDlg::OnDrawElipse()
+{
+	// TODO: Add your command handler code here
 }

@@ -38,4 +38,5 @@ public:
 	afx_msg void OnBnClickedDraw();
 	afx_msg void OnBnClickedMfccolorbutton3();
 	afx_msg void OnBnClickedMfccolorbutton1();
+	afx_msg void OnDrawElipse();
 };
