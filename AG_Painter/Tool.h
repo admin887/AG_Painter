@@ -6,9 +6,9 @@ class Tool: public IAction
 	private:
 		Shape *SelectedShape;
 	public:
-		virtual void MouseDown()=0;
-		virtual void MouseUp()=0;
-		virtual void DoubleClick()=0;
+		virtual void MouseDown();
+		virtual void MouseUp();
+		virtual void DoubleClick();
 		Shape* getSelectedShape();
 		void setSelectedShape(Shape *); 
 };
