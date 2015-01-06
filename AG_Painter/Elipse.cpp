@@ -3,8 +3,12 @@
 
 Elipse::Elipse(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {
-	setP1(newP1);
-	setP2(newP2);
+	setStartX(newP1.getStartX());
+	setStartY(newP1.getStartY());
+
+	setEndX(newP2.getStartX());
+	setEndY(newP2.getStartY());
+
 	setWeight(newWeight);
 	setColorOutside(newOutsideColor);
 	setColorInside(newInsideColor);
@@ -12,15 +16,12 @@ Elipse::Elipse(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, 
 }
 Elipse::Elipse(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {
-	Point *p1= new Point();
-	Point *p2= new Point();
-	p1->setX(newX1);
-	p1->setY(newY1);
-	p2->setX(newX2);
-	p2->setY(newY2);
+	setStartX(newX1);
+	setStartY(newY1);
 
-	setP1(*p1);
-	setP2(*p2);
+	setEndX(newX2);
+	setEndY(newY2);
+	
 	
 	setWeight(newWeight);
 	setColorInside(newInsideColor);
@@ -29,8 +30,11 @@ Elipse::Elipse(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF n
 }
 Elipse::Elipse(Elipse& e)
 {
-	setP1(e.getP1());
-	setP2(e.getP2());
+	setStartX(e.getStartX());
+	setStartY(e.getStartY());
+	setEndX(e.getEndX());
+	setEndY(e.getEndY());
+
 	setWeight(e.getWeight());
 	setColorOutside(e.getColorOutside());
 	setColorInside(e.getColorInside());
@@ -43,8 +47,11 @@ Elipse::~Elipse(void)
 
 Elipse &Elipse::operator=(Elipse &r)
 {
-	setP1(r.getP1());
-	setP2(r.getP2());
+	setStartX(r.getStartX());
+	setStartY(r.getStartY());
+	setEndX(r.getEndX());
+	setEndY(r.getEndY());
+
 	setWeight(r.getWeight());
 	setColorOutside(r.getColorOutside());
 	setColorInside(r.getColorInside());
@@ -53,23 +60,7 @@ Elipse &Elipse::operator=(Elipse &r)
 
 void Elipse::Paint(CDC *dc)
 {
-	dc->MoveTo(getP1().getX(), getP1().getY());
-	dc->Ellipse(getP1().getX(), getP1().getY(),getP2().getX(), getP2().getY());
+	dc->MoveTo(getStartX(), getStartY());
+	dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
 }
 
-void Elipse::setP1(Point newP1)
-{
-	m_p1= newP1;
-}
-void Elipse::setP2(Point newP2)
-{
-	m_p2= newP2;
-}
-Point Elipse::getP1()
-{
-	return m_p1;
-}
-Point Elipse::getP2()
-{
-	return m_p2;
-}

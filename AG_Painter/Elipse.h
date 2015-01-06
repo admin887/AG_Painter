@@ -1,14 +1,10 @@
 #include "stdafx.h"
-#include "stdafx.h"
 #include "Point.h"
 #include <Windows.h>
 #include <iostream>
 #pragma once
 class Elipse:public Shape
 {
-	private:
-		Point m_p1;
-		Point m_p2;
 	public:
 		Elipse(Point newP1, Point newP2,int newWeight=1, COLORREF=0, COLORREF=0);
 		Elipse(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
@@ -17,8 +13,4 @@ class Elipse:public Shape
 		Elipse &operator=( Elipse &);
 		void Paint(CDC *dc);
 
-		void setP1(Point);
-		void setP2(Point);
-		Point getP1();
-		Point getP2();
 };

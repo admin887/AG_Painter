@@ -2,16 +2,22 @@
 #include "Point.h"
 Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 {
-	setX(newX);
-	setY(newY);
+	setStartX(newX);
+	setStartY(newY);
+	setEndX(newX);
+	setEndY(newY);
+
 	setWeight(newWeight);
 	setColorInside(newColor);
 	setColorOutside(newColor);
 }
 Point::Point(Point &p)
 {
-	setX(p.getX());
-	setY(p.getY());
+	setStartX(p.getStartX());
+	setStartY(p.getStartY());
+	setEndX(p.getEndX());
+	setEndY(p.getEndY());
+
 	setWeight(p.getWeight());
 	setColorInside(p.getColorInside());
 	setColorOutside(p.getColorOutside());
@@ -23,42 +29,22 @@ const Point &Point::operator=(Point &p)
 {
 	if(&p!=this)
 	{
-		setX(p.getX());
-		setY(p.getY());
+		setStartX(p.getStartX());
+		setStartY(p.getStartY());
+		setEndX(p.getEndX());
+		setEndY(p.getEndY());
+
 		setColorInside(p.getColorInside());
 		setColorOutside(p.getColorOutside());
 	}
 	return *this;
 }
- int Point::getX() const
-{
-	return x;
-}
-int Point::getY() const
-{
-	return y;
-}
-
-
-void Point::setX(const int newX)
-{
-	if(newX<0)
-		x=0;
-	else
-		x=newX;
-}
-void Point::setY(const int newY)
-{
-	if(newY<0)
-		y=0;
-	else
-		y=newY;
-}
+ 
 void Point::Paint(CDC *dc)
 {
 	int i;
-	int tempX=getX();
-	int tempY=getY();
+	int tempX=getStartX();
+	int tempY=getStartY();
 	dc->MoveTo(tempX,tempY);
 	CBrush fill(getColorInside());
 	CPen border(PS_SOLID,1,getColorInside());

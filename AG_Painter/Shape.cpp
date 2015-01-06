@@ -35,3 +35,37 @@
 	else
 		m_weight=0;	
 	}
+
+	int Shape::getStartX()
+	{
+		return m_startX;
+	}
+	void Shape::setStartX(int newStartX)
+	{
+		m_startX= newStartX;
+	}
+	int Shape::getStartY()
+	{
+		return m_startY;
+	}
+	void Shape::setStartY(int newStartY)
+	{
+		m_startY= newStartY;
+	}
+	
+	int Shape::getEndX()
+	{
+		return m_endX;
+	}
+	void Shape::setEndX(int newEndX)
+	{
+		m_endX= newEndX;
+	}
+	int Shape::getEndY()
+	{
+		return m_endY;
+	}
+	void Shape::setEndY(int newEndY)
+	{
+		m_endY= newEndY;
+	}

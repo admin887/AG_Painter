@@ -4,8 +4,14 @@
 
 Line::Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor)
 {
-	start= newStart;
-	end= newEnd;
+
+	setStartX(newStart.getStartX());
+	setStartY(newStart.getStartY());
+
+	setEndX(newEnd.getStartX());
+	setEndY(newEnd.getStartY());
+
+
 	setWeight(newWeight);
 	setColorInside(newColor);
 	setColorOutside(newColor);
@@ -13,11 +19,11 @@ Line::Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor)
 }
 Line::Line(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newColor) 
 {
-	Point newStart(newX1,newY1);
-	Point newEnd(newX2,newY2);
+	setStartX(newX1);
+	setStartY(newY1);
 
-	setStartPoint(newStart);
-	setEndPoint(newEnd);
+	setEndX(newX2);
+	setEndY(newY2);
 
 	setWeight(newWeight);
 	setColorInside(newColor);
@@ -26,8 +32,12 @@ Line::Line(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newCo
 }
 Line::Line(Line& l)
 {
-	setStartPoint(l.getStartPoint());
-	setEndPoint(l.getEndPoint());
+	setStartX(l.getStartX());
+	setStartY(l.getStartY());
+
+	setEndX(l.getEndX());
+	setEndY(l.getEndY());
+
 	setWeight(l.getWeight());
 	setColorInside(l.getColorInside());
 	setColorOutside(l.getColorOutside());
@@ -40,33 +50,20 @@ Line::~Line(void)
 
 Line &Line::operator=(Line &l)
 {
-	setStartPoint(l.getStartPoint());
-	setEndPoint(l.getEndPoint());
+	setStartX(l.getStartX());
+	setStartY(l.getStartY());
+
+	setEndX(l.getEndX());
+	setEndY(l.getEndY());
+
 	setWeight(l.getWeight());
 	setColorInside(l.getColorInside());
 	setColorOutside(l.getColorOutside());
 	return *this;
 }
 
-	Point Line::getStartPoint()
-	{
-		return start;
-	}
-	Point Line::getEndPoint()
-	{
-		return end;
-	}
-	void Line::setStartPoint(Point newStart)
-	{
-		start= newStart;
-	}
-	void Line::setEndPoint(Point newEnd)
-	{
-		end= newEnd;
-	}
-
 void Line::Paint(CDC *dc)
 {
-	dc->MoveTo(getStartPoint().getX(),getStartPoint().getY());
-	dc->LineTo(getEndPoint().getX(),getEndPoint().getY());
+	dc->MoveTo(getStartX(),getStartY());
+	dc->LineTo(getEndX(),getEndY());
 }
