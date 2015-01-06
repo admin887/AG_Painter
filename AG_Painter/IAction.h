@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Point.h"
+#include "Shape.h"
 #pragma once
 class IAction
 {
