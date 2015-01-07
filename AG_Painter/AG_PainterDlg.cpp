@@ -162,102 +162,77 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-
-	//Shape *s = new Elipse(point.x,point.y,point.x+50,point.y+50);
-	//Shape *r = new Rec(point.x,point.y,point.x+50,point.y+50);
-	//Shape *p = new Point(point.x,point.y,10,RGB(0,0,255));
-	//Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
-
-	//
-
-	CClientDC dc(this);
-	//l->Paint(&dc);
-	
-		if(!isPressed)
-		{
-			thisDoc.getDrawer().MouseDown(&dc,point);
-
-			if(!(thisDoc.getCurrentShape().getEndX()==-1))
+			if(!(thisDoc.getCurrentShape().getEndX()==-1) && !(thisDoc.getCurrentShape().getEndY()==-1))
 			{
-				isPressed=true;
+				thisDoc.getCurrentShape().setEndX(0);
+				thisDoc.getCurrentShape().setEndY(0);	
 			}
-		}
-		else
-		{
-			thisDoc.getDrawer().MouseUp(&dc,point);
-			isPressed=false;
-		}
-
-	//thisDoc.getCurrentShape().setIsSelected(true);
-	//thisDoc.getDrawer().MouseDown(&dc,point);
-
-
-
-	//Point *p = new Point(point.x,point.y,10,RGB(0,0,255));
-	//CClientDC dc(this);
-
-	// TODO: Add your message handler code here and/or call default
-		//CClientDC dc(this);
-		//CPen myPen1(PS_SOLID, 3, RGB(255,0,0));
-		//CPen *oldPen;
-		//oldPen=dc.SelectObject( &myPen1 ); 
-		//dc.SetROP2(R2_NOTXORPEN);  
-		//dc.MoveTo(10,55);
-		//dc.LineTo(20, 100);
-		//dc.SetPixel(100,100,RGB(255,0,0));
-		//dc.SelectObject( oldPen ); 
-	//CDialog::OnMouseMove(nFlags, point);
-	//p->Paint(&dc);
-	//Invalidate();
+				thisDoc.getCurrentShape().setStartX(point.x);
+				thisDoc.getCurrentShape().setStartY(point.y);
+				isPressed=true;
 }
 
 
 void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
-	
-	//CClientDC dc(this);
-	////Invalidate();
-	//thisDoc.getDrawer().MouseUp(&dc,point);
-	
+	COLORREF curColor= thisDoc.getCurrentShape().getColorInside();
+
+	if(isPressed)
+	{
+
+		CClientDC dc(this);
+
+		CBrush myBrush,*oldBrush;
+		myBrush.CreateSolidBrush(curColor);
+		oldBrush=dc.SelectObject( &myBrush );        
+
+		CPen myPen1(PS_SOLID,thisDoc.getCurrentShape().getWeight(), thisDoc.getCurrentShape().getColorOutside());
+
+		CPen *oldPen;
+		oldPen=dc.SelectObject( &myPen1 ); 
+		dc.SetROP2(R2_NOTXORPEN);  
+		thisDoc.getDrawer().MouseOver(&dc,point);
+		dc.SelectObject( oldPen ); 
+		dc.SetROP2(R2_COPYPEN);  
+
+
+		dc.SelectObject( oldBrush ); 
+	}
 }
 
 
 void CAG_PainterDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	//// TODO: Add your control notification handler code here
-	//*pResult = 0;
+
 }
 
 
 void CAG_PainterDlg::OnBnClickedDraw2()
 {
-	// TODO: Add your control notification handler code here
+	
 }
 
 
 void CAG_PainterDlg::OnBnClickedDraw()
 {
-	// TODO: Add your control notification handler code here
+	
 }
 
 
 void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
 {
-	// TODO: Add your control notification handler code here
+	
 }
 
 
 void CAG_PainterDlg::OnDrawElipse()
 {
 //	Document *thisDoc= new Document();
-	Elipse *e= new Elipse(50,50,50,50);
+	Elipse *e= new Elipse(0,0,0,0,1,RGB(255,0,0),RGB(200,200,200));
 	Drawer *d= new Drawer();
-
 
 	thisDoc.setDrawer(*d);
 	thisDoc.setCurrentShape(*e);
-
-	//thisDoc->setDrawer(*d);
 
 	
 }
@@ -265,7 +240,7 @@ void CAG_PainterDlg::OnDrawElipse()
 
 void CAG_PainterDlg::OnDrawRectangle()
 {
-	Rec *e= new Rec(50,50,50,50);
+	Rec *e= new Rec(0,0,0,0,1,RGB(0,255,0),RGB(200,200,200));
 	Drawer *d= new Drawer();
 
 
@@ -276,7 +251,7 @@ void CAG_PainterDlg::OnDrawRectangle()
 
 void CAG_PainterDlg::OnDrawLine()
 {
-	Line *e= new Line(50,50,50,50);
+	Line *e= new Line(0,0,0,0);
 	Drawer *d= new Drawer();
 
 
@@ -287,7 +262,7 @@ void CAG_PainterDlg::OnDrawLine()
 
 void CAG_PainterDlg::OnDrawPoints()
 {
-	Point *e= new Point(0,0,10);
+	Point *e= new Point(0,0,6);
 	Drawer *d= new Drawer();
 
 
@@ -298,9 +273,7 @@ void CAG_PainterDlg::OnDrawPoints()
 
 void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
 {
-	// TODO: Add your message handler code here and/or call default
 
-	//CDialogEx::OnMouseHover(nFlags, point);
 
 
 }
@@ -308,11 +281,5 @@ void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
 
 void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
-	//// TODO: Add your message handler code here and/or call default
-
-	////CDialogEx::OnLButtonUp(nFlags, point);
-	//CClientDC dc(this);
-	//Invalidate();
-	//thisDoc.getDrawer().MouseUp(&dc,point);
-	//thisDoc.getCurrentShape().setIsSelected(false);
+	isPressed=false;
 }

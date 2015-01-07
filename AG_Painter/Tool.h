@@ -9,6 +9,7 @@ class Tool: public IAction
 		virtual void MouseDown(CDC *dc,CPoint)=0;
 		virtual void MouseUp(CDC *dc,CPoint)=0;
 		virtual void DoubleClick(CDC *dc,CPoint)=0;
+		virtual void MouseOver(CDC *dc,CPoint)=0;
 		Shape* getSelectedShape();
 		void setSelectedShape(Shape *); 
 };

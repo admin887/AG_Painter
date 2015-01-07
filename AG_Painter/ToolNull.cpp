@@ -13,3 +13,7 @@ void ToolNull::DoubleClick(CDC *dc,CPoint newPoint)
 {
 
 }
+void ToolNull::MouseOver(CDC *dc,CPoint newPoint)
+{
+
+}
