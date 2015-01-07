@@ -7,7 +7,7 @@ private:
 	Drawer *m_drawer;
 	Shape *currShape;
 public:
-	Document(Drawer *,Shape *);
+	Document(Drawer &,Shape &);
 	Document(Document &);
 	~Document();
 	Document &operator=(Document &newDocument);
