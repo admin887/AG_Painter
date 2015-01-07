@@ -112,6 +112,7 @@
     <ClInclude Include="Colorable.h" />
     <ClInclude Include="ISelectable.h" />
     <ClInclude Include="IWeightable.h" />
+    <ClInclude Include="NullShape.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Mover.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tool.h" />
+    <ClInclude Include="ToolNull.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AG_Painter.cpp" />
@@ -137,6 +139,7 @@
     <ClCompile Include="Eraser.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="Mover.cpp" />
+    <ClCompile Include="NullShape.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Resizer.cpp" />
@@ -150,6 +153,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Tool.cpp" />
+    <ClCompile Include="ToolNull.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AG_Painter.rc" />

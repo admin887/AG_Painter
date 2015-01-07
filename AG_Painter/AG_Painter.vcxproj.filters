@@ -120,6 +120,12 @@
     <ClInclude Include="IWeightable.h">
       <Filter>Header Files\Abstract classes</Filter>
     </ClInclude>
+    <ClInclude Include="NullShape.h">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolNull.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AG_Painter.cpp">
@@ -178,6 +184,12 @@
     </ClCompile>
     <ClCompile Include="ShapesGarage.cpp">
       <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="NullShape.cpp">
+      <Filter>Source Files\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolNull.cpp">
+      <Filter>Source Files\Tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,18 @@
 #include "stdafx.h"
 #include "Document.h"
+#include "Drawer.h"
+#pragma once;
 
-Drawer &Document::getDrawer()
+Document::Document(Tool* newDrawer, Shape* newShape)
+{
+	setDrawer(*newDrawer);
+	setCurrentShape(*newShape);
+}
+Tool &Document::getDrawer()
 {
 	return *m_drawer;
 }
-void Document::setDrawer(Drawer &newDrawer)
+void Document::setDrawer(Tool &newDrawer)
 {
 	m_drawer= &newDrawer;
 }
