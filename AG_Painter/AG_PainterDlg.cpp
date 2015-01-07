@@ -79,6 +79,9 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	ON_COMMAND(ID_DRAW_ELIPSE, &CAG_PainterDlg::OnDrawElipse)
 	ON_COMMAND(ID_DRAW_RECTANGLE, &CAG_PainterDlg::OnDrawRectangle)
 	ON_COMMAND(ID_DRAW_LINE, &CAG_PainterDlg::OnDrawLine)
+	ON_COMMAND(ID_DRAW_POINTS, &CAG_PainterDlg::OnDrawPoints)
+	ON_WM_MOUSEHOVER()
+	ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
 
 
@@ -166,19 +169,28 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	//Shape *l = new Line(point.x,point.y,point.x+50,point.y+50);
 
 	//
+
 	CClientDC dc(this);
 	//l->Paint(&dc);
 	
 		if(!isPressed)
 		{
 			thisDoc.getDrawer().MouseDown(&dc,point);
-			isPressed=true;
+
+			if(!(thisDoc.getCurrentShape().getEndX()==-1))
+			{
+				isPressed=true;
+			}
 		}
 		else
 		{
 			thisDoc.getDrawer().MouseUp(&dc,point);
 			isPressed=false;
 		}
+
+	//thisDoc.getCurrentShape().setIsSelected(true);
+	//thisDoc.getDrawer().MouseDown(&dc,point);
+
 
 
 	//Point *p = new Point(point.x,point.y,10,RGB(0,0,255));
@@ -203,15 +215,17 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
 	
-
+	//CClientDC dc(this);
+	////Invalidate();
+	//thisDoc.getDrawer().MouseUp(&dc,point);
 	
 }
 
 
 void CAG_PainterDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
-	// TODO: Add your control notification handler code here
-	*pResult = 0;
+	//// TODO: Add your control notification handler code here
+	//*pResult = 0;
 }
 
 
@@ -268,4 +282,37 @@ void CAG_PainterDlg::OnDrawLine()
 
 	thisDoc.setDrawer(*d);
 	thisDoc.setCurrentShape(*e);
+}
+
+
+void CAG_PainterDlg::OnDrawPoints()
+{
+	Point *e= new Point(0,0,10);
+	Drawer *d= new Drawer();
+
+
+	thisDoc.setDrawer(*d);
+	thisDoc.setCurrentShape(*e);
+}
+
+
+void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	//CDialogEx::OnMouseHover(nFlags, point);
+
+
+}
+
+
+void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
+{
+	//// TODO: Add your message handler code here and/or call default
+
+	////CDialogEx::OnLButtonUp(nFlags, point);
+	//CClientDC dc(this);
+	//Invalidate();
+	//thisDoc.getDrawer().MouseUp(&dc,point);
+	//thisDoc.getCurrentShape().setIsSelected(false);
 }

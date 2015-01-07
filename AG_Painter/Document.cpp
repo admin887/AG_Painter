@@ -1,22 +1,6 @@
 #include "stdafx.h"
 #include "Document.h"
-Document::Document(Drawer &d,Shape &s)
-{
-	setDrawer(d);
-	setCurrentShape(s);
-}
-Document::Document(Document &d)
-{
-	setDrawer(d.getDrawer());
-	setCurrentShape(d.getCurrentShape());
-}
-Document::~Document()
-{
-}
-Document &Document::operator=(Document &newDocument)
-{
-	return newDocument;
-}
+
 Drawer &Document::getDrawer()
 {
 	return *m_drawer;
@@ -34,4 +18,8 @@ void Document::setCurrentShape(Shape &newShape)
 {
 	currShape= &newShape;
 	getDrawer().setSelectedShape(currShape);
+}
+Document &Document::operator=(Document &newDocument)
+{
+	return newDocument;
 }

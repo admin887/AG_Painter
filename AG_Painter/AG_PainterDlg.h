@@ -45,4 +45,7 @@ public:
 	bool isPressed;
 	afx_msg void OnDrawRectangle();
 	afx_msg void OnDrawLine();
+	afx_msg void OnDrawPoints();
+	afx_msg void OnMouseHover(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 };
