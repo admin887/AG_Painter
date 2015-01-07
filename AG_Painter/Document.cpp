@@ -10,6 +10,9 @@ Document::Document(Document &d)
 	setDrawer(d.getDrawer());
 	setCurrentShape(d.getCurrentShape());
 }
+Document::~Document()
+{
+}
 Document &Document::operator=(Document &newDocument)
 {
 	return newDocument;
