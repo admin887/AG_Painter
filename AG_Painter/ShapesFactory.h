@@ -1,11 +1,19 @@
 #include "stdafx.h"
 #include "Shape.h"
+#include "Point.h"
+#include "Rectangle.h"
+#include "Elipse.h"
+#include "Line.h"
+#include "EnumShapes.h"
+#pragma once
 class ShapesFactory
 {
 private:
+	static bool instanceFlag;
+	static ShapesFactory* s;
 	ShapesFactory();
 public:
 	~ShapesFactory();
-	ShapesFactory getInstance();
-	Shape CreateShape(char* Type);
+	static ShapesFactory* getInstance();
+	Shape* CreateShape(EnumShapes);
 };

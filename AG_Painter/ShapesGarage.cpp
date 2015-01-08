@@ -24,24 +24,6 @@ list<Shape*>* ShapesGarage::getRetiredShapes()
 }
 void ShapesGarage::CreateShape(EnumShapes s)
 {
-	if(s==EnumShapes::E_POINT)
-	{
-		Point *p=new Point();
-		m_alive->push_front(p);
-	}
-	else if(s==EnumShapes::E_LINE)
-	{
-		Line *l=new Line();
-		m_alive->push_front(l);
-	}
-	else if(s==EnumShapes::E_ELI)
-	{
-		Elipse *e=new Elipse();
-		m_alive->push_front(e);
-	}
-	else if(s==EnumShapes::E_REC)
-	{
-		Rec *r=new Rec();
-		m_alive->push_front(r);
-	}
+	ShapesFactory* sf=ShapesFactory::getInstance();
+	m_alive->push_front(sf->CreateShape(s));
 }

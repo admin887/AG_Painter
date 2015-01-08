@@ -107,6 +107,7 @@
     <ClInclude Include="Document.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="Elipse.h" />
+    <ClInclude Include="EnumShapes.h" />
     <ClInclude Include="Eraser.h" />
     <ClInclude Include="IAction.h" />
     <ClInclude Include="Colorable.h" />
