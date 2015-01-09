@@ -82,6 +82,7 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	ON_COMMAND(ID_DRAW_POINTS, &CAG_PainterDlg::OnDrawPoints)
 	ON_WM_MOUSEHOVER()
 	ON_WM_LBUTTONUP()
+//	ON_BN_CLICKED(IDC_BUTTON1, &CAG_PainterDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -118,6 +119,13 @@ BOOL CAG_PainterDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	
+	
+
+   // CFont font;
+    //font.CreatePointFont (500, _T ("Arial"));
+
+	//!!8 b
+	
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -141,7 +149,27 @@ void CAG_PainterDlg::OnSysCommand(UINT nID, LPARAM lParam)
 
 void CAG_PainterDlg::OnPaint()
 {
-	
+	CPaintDC dc (this);
+	//CClientDC dc(this);
+	CRect rect;
+    GetClientRect (&rect);
+
+	/*for(int i=0;i<150;i++)
+		for(int j=0;j<150;j++)
+			dc.SetPixel(i+15,j,RGB(i,j,0));*/
+	for(int i=0;i<50;i++)
+		for(int j=0;j<50;j++)
+			dc.SetPixel(15+i,j+30,RGB(100,50,0));
+
+	for(int i=0;i<50;i++)
+		for(int j=0;j<50;j++)
+			dc.SetPixel(50+5+15+i,j+30,RGB(30,50,100));
+
+	for(int i=0;i<50;i++)
+		for(int j=0;j<50;j++)
+			dc.SetPixel(15+i,+50+5+j+30,RGB(100,50,0));
+
+
 }
 
 // The system calls this function to obtain the cursor to display while the user drags
@@ -282,4 +310,10 @@ void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
 void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	isPressed=false;
+}
+
+
+void CAG_PainterDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
 }
