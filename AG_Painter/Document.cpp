@@ -3,18 +3,24 @@
 #include "Drawer.h"
 #pragma once;
 
-Document::Document(Tool* newDrawer, Shape* newShape)
+Document::Document(Tool* newCurTool, Shape* newShape)
 {
-	setDrawer(*newDrawer);
+	setCurrTool(*newCurTool);
 	setCurrentShape(*newShape);
+
+	//m_Selector= new Selector()
+	//..
+	//..
+	sg= new ShapesGarage();
 }
-Tool &Document::getDrawer()
+Tool &Document::getCurrTool()
 {
-	return *m_drawer;
+	return *curTool;
 }
-void Document::setDrawer(Tool &newDrawer)
+
+void Document::setCurrTool(Tool &newCurTool)
 {
-	m_drawer= &newDrawer;
+	curTool=  &newCurTool;
 }
 
 Shape &Document::getCurrentShape()
@@ -24,9 +30,18 @@ Shape &Document::getCurrentShape()
 void Document::setCurrentShape(Shape &newShape)
 {
 	currShape= &newShape;
-	getDrawer().setSelectedShape(currShape);
+	getCurrTool().setSelectedShape(currShape);
 }
 Document &Document::operator=(Document &newDocument)
 {
 	return newDocument;
+}
+
+ShapesGarage* Document::getShapeGarade()
+	{
+		return sg;
+	}
+void Document::setShapeGarade(ShapesGarage &newsg)
+{
+	sg= &newsg;
 }

@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "Drawer.h"
 
+Drawer::Drawer(ShapesGarage &newSG)
+{
+	setShapeGarage(newSG);
+}
 void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 {
 

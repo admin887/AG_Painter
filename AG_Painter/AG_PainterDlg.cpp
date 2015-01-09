@@ -119,7 +119,15 @@ BOOL CAG_PainterDlg::OnInitDialog()
 
 	// TODO: Add extra initialization here
 	
+	myShapeGarage= new ShapesGarage();
+	myDrawer = new Drawer(*myShapeGarage);
+
+	thisDoc.setShapeGarade(*myShapeGarage);
 	
+	//Elipse *e =new Elipse();
+	//myShapeGarage->getAliveShapes()->push_back(e);
+
+
 
    // CFont font;
     //font.CreatePointFont (500, _T ("Arial"));
@@ -190,6 +198,9 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
+			Shape *myshape=   myShapeGarage->CreateShape(myShapeType);
+			thisDoc.setCurrentShape(*myshape);
+
 			if(!(thisDoc.getCurrentShape().getEndX()==-1) && !(thisDoc.getCurrentShape().getEndY()==-1))
 			{
 				thisDoc.getCurrentShape().setEndX(0);
@@ -219,7 +230,7 @@ void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 		CPen *oldPen;
 		oldPen=dc.SelectObject( &myPen1 ); 
 		dc.SetROP2(R2_NOTXORPEN);  
-		thisDoc.getDrawer().MouseOver(&dc,point);
+		thisDoc.getCurrTool().MouseOver(&dc,point);
 		dc.SelectObject( oldPen ); 
 		dc.SetROP2(R2_COPYPEN);  
 
@@ -256,11 +267,17 @@ void CAG_PainterDlg::OnBnClickedMfccolorbutton3()
 void CAG_PainterDlg::OnDrawElipse()
 {
 //	Document *thisDoc= new Document();
-	Elipse *e= new Elipse(0,0,0,0,1,RGB(255,0,0),RGB(200,200,200));
-	Drawer *d= new Drawer();
+	//Elipse *e= new Elipse(0,0,0,0,1,RGB(255,0,0),RGB(200,200,200));
 
-	thisDoc.setDrawer(*d);
-	thisDoc.setCurrentShape(*e);
+	//Shape *myshape=   myShapeGarage->CreateShape(EnumShapes::E_ELI);
+
+	myShapeType= E_ELIPSE;
+
+	//Drawer *d= new Drawer(*myShapeGarage);
+
+	thisDoc.setCurrTool(*myDrawer);
+	
+	//thisDoc.setCurrentShape(*myshape);
 
 	
 }
@@ -268,34 +285,42 @@ void CAG_PainterDlg::OnDrawElipse()
 
 void CAG_PainterDlg::OnDrawRectangle()
 {
-	Rec *e= new Rec(0,0,0,0,1,RGB(0,255,0),RGB(200,200,200));
-	Drawer *d= new Drawer();
+	//Rec *e= new Rec(0,0,0,0,1,RGB(0,255,0),RGB(200,200,200));
+	//Drawer *d= new Drawer();
 
 
-	thisDoc.setDrawer(*d);
-	thisDoc.setCurrentShape(*e);
+	//thisDoc.setDrawer(*d);
+	//thisDoc.setCurrentShape(*e);
+
+	myShapeType= E_RECTANGLE;
+	thisDoc.setCurrTool(*myDrawer);
 }
 
 
 void CAG_PainterDlg::OnDrawLine()
 {
-	Line *e= new Line(0,0,0,0);
+	/*Line *e= new Line(0,0,0,0);
 	Drawer *d= new Drawer();
 
 
 	thisDoc.setDrawer(*d);
-	thisDoc.setCurrentShape(*e);
+	thisDoc.setCurrentShape(*e);*/
+	myShapeType= E_LINE;
+	thisDoc.setCurrTool(*myDrawer);
 }
 
 
 void CAG_PainterDlg::OnDrawPoints()
 {
-	Point *e= new Point(0,0,6);
+	myShapeType= E_POINT;
+	thisDoc.setCurrTool(*myDrawer);
+
+	/*Point *e= new Point(0,0,6);
 	Drawer *d= new Drawer();
 
 
 	thisDoc.setDrawer(*d);
-	thisDoc.setCurrentShape(*e);
+	thisDoc.setCurrentShape(*e);*/
 }
 
 

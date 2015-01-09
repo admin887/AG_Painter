@@ -8,6 +8,7 @@ Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 	setEndY(-1);
 
 	setWeight(newWeight);
+	//setWeight(4);
 	setColorInside(newColor);
 	setColorOutside(newColor);
 }

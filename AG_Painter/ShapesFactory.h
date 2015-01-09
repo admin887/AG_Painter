@@ -14,5 +14,5 @@ private:
 public:
 	~ShapesFactory();
 	static ShapesFactory* getInstance();
-	Shape* CreateShape(EnumShapes);
+	Shape* CreateShape(ENUM_SHAPES);
 };

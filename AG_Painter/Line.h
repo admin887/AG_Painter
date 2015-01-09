@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Point.h"
+#pragma once
 class Line:public Shape
 {
 private:

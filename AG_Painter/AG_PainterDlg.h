@@ -4,6 +4,9 @@
 
 #pragma once
 #include "document.h"
+#include "shapesgarage.h"
+#include "drawer.h"
+#include "EnumShapes.h"
 //nclude "Document.h"
 
 // CAG_PainterDlg dialog
@@ -49,4 +52,7 @@ public:
 	afx_msg void OnMouseHover(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedButton1();
+	ShapesGarage *myShapeGarage;
+	Drawer *myDrawer;
+	ENUM_SHAPES myShapeType;
 };

@@ -36,7 +36,7 @@
 		m_weight=0;	
 	}
 
-	int Shape::getStartX()
+	int Shape::getStartX() 
 	{
 		return m_startX;
 	}

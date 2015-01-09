@@ -19,24 +19,24 @@ ShapesFactory* ShapesFactory::getInstance()
 	else
 		return s;
 }
-Shape* ShapesFactory::CreateShape(EnumShapes es)
+Shape* ShapesFactory::CreateShape(ENUM_SHAPES es)
 {
-	if(es==EnumShapes::E_POINT)
+	if(es==E_POINT)
 	{
 		Point *p=new Point();
 		return p;
 	}
-	else if(es==EnumShapes::E_LINE)
+	else if(es==E_LINE)
 	{
 		Line *l=new Line();
 		return l;
 	}
-	else if(es==EnumShapes::E_ELI)
+	else if(es==E_ELIPSE)
 	{
 		Elipse *e=new Elipse();
 		return e;
 	}
-	else if(es==EnumShapes::E_REC)
+	else if(es==E_RECTANGLE)
 	{
 		Rec *r=new Rec();
 		return r;

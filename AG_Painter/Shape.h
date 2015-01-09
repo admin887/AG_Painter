@@ -37,3 +37,4 @@ public:
 	void setEndY(int newEndY);
 
 };
+enum ENUM_SHAPES {E_NULLSHAPE,E_POINT, E_ELIPSE, E_RECTANGLE, E_LINE};

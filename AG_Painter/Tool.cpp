@@ -8,3 +8,12 @@ void Tool::setSelectedShape(Shape* newShape)
 {
 	SelectedShape=newShape;
 }
+
+ShapesGarage* Tool::getShapeGarage()
+{
+	return sg;
+}
+void Tool::setShapeGarage(ShapesGarage &newSG)
+{
+	sg= &newSG;
+}

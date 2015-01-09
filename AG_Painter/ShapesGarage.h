@@ -11,11 +11,13 @@ class ShapesGarage
 		list<Shape*> *m_retired;
 		ShapesFactory *m_factory;
 	public:
-		ShapesGarage(list<Shape*>* m_alive=nullptr,list<Shape*>* m_retired=nullptr, ShapesFactory* newFactory=nullptr);
+		ShapesGarage();
 		ShapesGarage(ShapesGarage &s);
 		~ShapesGarage(void);
 		//ShapesGarage &operator=(ShapesGarage &s);
 		list<Shape*>* getAliveShapes();
 		list<Shape*>* getRetiredShapes();
-		void CreateShape(EnumShapes s);
+		Shape* CreateShape(ENUM_SHAPES s);
+
+
 };
