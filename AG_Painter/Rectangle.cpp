@@ -74,5 +74,14 @@ void Rec::Paint(CDC *dc)
 		dc->SelectObject( oldPen ); 
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
+		if(!getIsSelected())
+		{
+			dc->SetROP2(R2_NOTXORPEN);  
+			CRectTracker track;
+			CPoint pStart(getStartX(),getStartY()),pEnd(getEndX(),getEndY());
+			track.m_rect.SetRect(pStart,pEnd);
+			track.m_nStyle=CRectTracker::dottedLine^CRectTracker::resizeOutside;
+			track.Draw(dc);
+		}
 }
 

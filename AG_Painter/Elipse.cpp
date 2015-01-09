@@ -84,6 +84,7 @@ void Elipse::Paint(CDC *dc)
 			CPoint pStart(getStartX(),getStartY()),pEnd(getEndX(),getEndY());
 			track.m_rect.SetRect(pStart,pEnd);
 			track.m_nStyle=CRectTracker::dottedLine^CRectTracker::resizeOutside;
+			track.Draw(dc);
 		}
 }
 
