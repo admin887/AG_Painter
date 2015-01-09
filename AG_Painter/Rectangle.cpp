@@ -60,7 +60,19 @@ Rec &Rec::operator=(Rec &r)
 
 void Rec::Paint(CDC *dc)
 {
-	dc->MoveTo(getStartX(), getStartY());
-	dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
+	CBrush myBrush,*oldBrush;
+		myBrush.CreateSolidBrush(getColorInside());
+		oldBrush=dc->SelectObject( &myBrush );        
+
+		CPen myPen1(PS_SOLID,getWeight(), getColorOutside());
+
+		CPen *oldPen;
+		oldPen=dc->SelectObject( &myPen1 ); 
+		dc->SetROP2(R2_NOTXORPEN);  
+		dc->MoveTo(getStartX(), getStartY());
+		dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
+		dc->SelectObject( oldPen ); 
+		dc->SetROP2(R2_COPYPEN);  
+		dc->SelectObject( oldBrush ); 
 }
 

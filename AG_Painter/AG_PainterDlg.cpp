@@ -158,8 +158,9 @@ void CAG_PainterDlg::OnSysCommand(UINT nID, LPARAM lParam)
 void CAG_PainterDlg::OnPaint()
 {
 	CPaintDC dc (this);
-	//CClientDC dc(this);
+	CClientDC dc2(this);
 	CRect rect;
+	
     GetClientRect (&rect);
 
 	/*for(int i=0;i<150;i++)
@@ -176,6 +177,41 @@ void CAG_PainterDlg::OnPaint()
 	for(int i=0;i<50;i++)
 		for(int j=0;j<50;j++)
 			dc.SetPixel(15+i,+50+5+j+30,RGB(100,50,0));
+
+	/*Shape *pos;
+	for (pos=myShapeGarage->getAliveShapes()->begin(); pos!=myShapeGarage->getAliveShapes()->end; ++pos) {
+        
+		 pos->Paint(&dc);
+    }*/
+	int ListSize= myShapeGarage->getAliveShapes()->_Mysize;
+
+	std::list<Shape*>::iterator i;
+
+	for (i =myShapeGarage->getAliveShapes()->begin() ; i!=myShapeGarage->getAliveShapes()->end() ; i++)
+	{
+		i._Mynode()->_Myval->Paint(&dc);
+	}
+
+
+
+
+
+
+	//for (int i = 0; i < ListSize; i++)
+	//{
+	//	//myShapeGarage->getAliveShapes()->find
+	//	myShapeGarage->getAliveShapes()->
+	//	
+
+	//}
+
+	//for(int i = 0 , ptr = l.begin() ; i < N && ptr != l.end() ; i++ , ptr++ );
+
+	//	if( ptr == l.end() ) {
+	//		// list too short  
+	//	} else {
+	//		// 'ptr' points to N-th element of list
+	//	}
 
 
 }
@@ -221,21 +257,22 @@ void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 
 		CClientDC dc(this);
 
-		CBrush myBrush,*oldBrush;
-		myBrush.CreateSolidBrush(curColor);
-		oldBrush=dc.SelectObject( &myBrush );        
+		//CBrush myBrush,*oldBrush;
+		//myBrush.CreateSolidBrush(curColor);
+		//oldBrush=dc.SelectObject( &myBrush );        
 
-		CPen myPen1(PS_SOLID,thisDoc.getCurrentShape().getWeight(), thisDoc.getCurrentShape().getColorOutside());
+		//CPen myPen1(PS_SOLID,thisDoc.getCurrentShape().getWeight(), thisDoc.getCurrentShape().getColorOutside());
 
-		CPen *oldPen;
-		oldPen=dc.SelectObject( &myPen1 ); 
-		dc.SetROP2(R2_NOTXORPEN);  
+		//CPen *oldPen;
+		//oldPen=dc.SelectObject( &myPen1 ); 
+		//dc.SetROP2(R2_NOTXORPEN);  
 		thisDoc.getCurrTool().MouseOver(&dc,point);
-		dc.SelectObject( oldPen ); 
-		dc.SetROP2(R2_COPYPEN);  
+
+		//dc.SelectObject( oldPen ); 
+		//dc.SetROP2(R2_COPYPEN);  
 
 
-		dc.SelectObject( oldBrush ); 
+		//dc.SelectObject( oldBrush ); 
 	}
 }
 
