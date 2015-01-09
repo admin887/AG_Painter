@@ -39,6 +39,7 @@ Shape* ShapesGarage::CreateShape(ENUM_SHAPES s)
 	Shape *myshape= m_factory->CreateShape(s);
 
 	m_alive->push_front(myshape);
+	//m_alive->push_back(myshape);
 	return myshape;
 	//m_alive=  new std::list<Shape*>();
 
