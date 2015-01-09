@@ -60,6 +60,7 @@ Elipse &Elipse::operator=(Elipse &r)
 
 void Elipse::Paint(CDC *dc)
 {
+	
 		CBrush myBrush,*oldBrush;
 		myBrush.CreateSolidBrush(getColorInside());
 		oldBrush=dc->SelectObject( &myBrush );        
@@ -70,10 +71,19 @@ void Elipse::Paint(CDC *dc)
 		oldPen=dc->SelectObject( &myPen1 ); 
 		dc->SetROP2(R2_NOTXORPEN);  
 		dc->MoveTo(getStartX(), getStartY());
+		
+		
 		dc->Ellipse(getStartX(), getStartY(),getEndX(), getEndY());
+
 		dc->SelectObject( oldPen ); 
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
+
+		if(!getIsSelected())
+		{
+			dc->SetROP2(R2_NOTXORPEN);  
+			dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
+		}
 
 }
 

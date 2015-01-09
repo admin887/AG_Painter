@@ -28,7 +28,7 @@ Shape* selector::tryToSelect(CPoint p)
 	{
 		if((p.x<i._Mynode()->_Myval->getEndX())&&(p.y<i._Mynode()->_Myval->getEndY())&&((p.x>i._Mynode()->_Myval->getEndY())&&(p.y>i._Mynode()->_Myval->getStartY())))
 		{
-			i._Mynode()->_Myval->setIsSelected(true);
+			i._Mynode()->_Myval->setIsSelected(false);
 			return i._Mynode()->_Myval;
 		}
 	
@@ -51,7 +51,7 @@ void selector::DoubleClick(CDC *dc,CPoint newPoint)
 {
 	Shape* s= 	tryToSelect(newPoint);
 
-	s->setEndX(s->getEndX()+100);
+	//s->setEndX(s->getEndX()+100);
 
 }
 void selector::MouseOver(CDC *dc,CPoint newPoint)
