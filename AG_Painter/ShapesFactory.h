@@ -9,7 +9,6 @@
 class ShapesFactory
 {
 private:
-	static bool instanceFlag;
 	static ShapesFactory* s;
 	ShapesFactory();
 public:

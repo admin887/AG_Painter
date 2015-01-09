@@ -9,8 +9,9 @@ class ShapesGarage
 	private:
 		list<Shape*> *m_alive;
 		list<Shape*> *m_retired;
+		ShapesFactory *m_factory;
 	public:
-		ShapesGarage(list<Shape*>* m_alive=nullptr,list<Shape*>* m_retired=nullptr);
+		ShapesGarage(list<Shape*>* m_alive=nullptr,list<Shape*>* m_retired=nullptr, ShapesFactory* newFactory=nullptr);
 		ShapesGarage(ShapesGarage &s);
 		~ShapesGarage(void);
 		//ShapesGarage &operator=(ShapesGarage &s);

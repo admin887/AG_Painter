@@ -1,20 +1,19 @@
 #include "stdafx.h"
 #include "ShapesFactory.h"
-bool ShapesFactory::instanceFlag = false;
 ShapesFactory* ShapesFactory::s = nullptr;
 ShapesFactory::ShapesFactory()
 {
 }
 ShapesFactory::~ShapesFactory()
 {
-	instanceFlag=false;
+
 }
 ShapesFactory* ShapesFactory::getInstance()
 {
-	if(!instanceFlag)
+	if(s==nullptr)
 	{
 		s=new ShapesFactory();
-		instanceFlag=true;
+		
 		return s;
 	}
 	else
@@ -42,4 +41,5 @@ Shape* ShapesFactory::CreateShape(EnumShapes es)
 		Rec *r=new Rec();
 		return r;
 	}
+	return nullptr;
 }

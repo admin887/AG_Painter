@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "ShapesGarage.h"
+#include "ShapesFactory.h"
 #pragma once
-ShapesGarage::ShapesGarage(list<Shape*>* m_alive,list<Shape*>* m_retired)
+ShapesGarage::ShapesGarage(list<Shape*>* m_alive,list<Shape*>* m_retired, ShapesFactory *newFactory)
 {
 	m_alive=new list<Shape*>();
 	//m_retired=new list<Shape>();
+	*m_factory= *newFactory;
 }
 ShapesGarage::ShapesGarage(ShapesGarage &s)
 {
@@ -24,6 +26,6 @@ list<Shape*>* ShapesGarage::getRetiredShapes()
 }
 void ShapesGarage::CreateShape(EnumShapes s)
 {
-	ShapesFactory* sf=ShapesFactory::getInstance();
-	m_alive->push_front(sf->CreateShape(s));
+	m_factory = ShapesFactory::getInstance();
+	m_alive->push_front(m_factory->CreateShape(s));
 }
