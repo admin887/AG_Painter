@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ShapesFactory.h"
+#include "NullShape.h"
 ShapesFactory* ShapesFactory::s = nullptr;
 ShapesFactory::ShapesFactory()
 {
@@ -41,5 +42,6 @@ Shape* ShapesFactory::CreateShape(ENUM_SHAPES es)
 		Rec *r=new Rec();
 		return r;
 	}
-	return nullptr;
+
+	return new NullShape();
 }

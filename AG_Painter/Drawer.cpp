@@ -24,9 +24,9 @@ void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 {
 
-	getSelectedShape()->setStartX(newPoint.x);
+	/*getSelectedShape()->setStartX(newPoint.x);
 	getSelectedShape()->setStartY(newPoint.y);
-	getSelectedShape()->Paint(dc);
+	getSelectedShape()->Paint(dc);*/
 }
 void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 {

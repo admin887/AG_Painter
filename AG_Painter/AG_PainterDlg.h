@@ -7,6 +7,7 @@
 #include "shapesgarage.h"
 #include "drawer.h"
 #include "EnumShapes.h"
+#include "selector.h"
 //nclude "Document.h"
 
 // CAG_PainterDlg dialog
@@ -54,5 +55,8 @@ public:
 	afx_msg void OnBnClickedButton1();
 	ShapesGarage *myShapeGarage;
 	Drawer *myDrawer;
+	selector *mySelector;
 	ENUM_SHAPES myShapeType;
+	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
+	afx_msg void OnToolsSelect();
 };

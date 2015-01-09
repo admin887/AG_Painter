@@ -83,6 +83,8 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 	ON_WM_MOUSEHOVER()
 	ON_WM_LBUTTONUP()
 //	ON_BN_CLICKED(IDC_BUTTON1, &CAG_PainterDlg::OnBnClickedButton1)
+ON_WM_LBUTTONDBLCLK()
+ON_COMMAND(ID_TOOLS_SELECT, &CAG_PainterDlg::OnToolsSelect)
 END_MESSAGE_MAP()
 
 
@@ -121,6 +123,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	
 	myShapeGarage= new ShapesGarage();
 	myDrawer = new Drawer(*myShapeGarage);
+	mySelector= new selector(*myShapeGarage);
 
 	thisDoc.setShapeGarade(*myShapeGarage);
 	
@@ -234,6 +237,8 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
+
+
 			Shape *myshape=   myShapeGarage->CreateShape(myShapeType);
 			thisDoc.setCurrentShape(*myshape);
 
@@ -372,10 +377,29 @@ void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
 void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	isPressed=false;
+
 }
 
 
 void CAG_PainterDlg::OnBnClickedButton1()
 {
 	// TODO: Add your control notification handler code here
+}
+
+
+void CAG_PainterDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
+{
+	CClientDC dc(this);
+
+	thisDoc.getCurrTool().DoubleClick(&dc,point);
+	Invalidate();
+}
+
+
+void CAG_PainterDlg::OnToolsSelect()
+{
+	myShapeType = E_NULLSHAPE;
+	thisDoc.setCurrTool(*mySelector);
+		
+	
 }
