@@ -82,7 +82,8 @@ void Elipse::Paint(CDC *dc)
 		if(!getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  
-			dc->Rectangle(getStartX(), getStartY(),getEndX(), getEndY());
+			CRect rect(getStartX(),getStartY(),getEndX(),getEndY());
+			dc->DrawDragRect(&rect, CSize(3,3),NULL, CSize(3,3), NULL, NULL);
 		}
 
 }
