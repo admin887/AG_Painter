@@ -71,20 +71,19 @@ void Elipse::Paint(CDC *dc)
 		oldPen=dc->SelectObject( &myPen1 ); 
 		dc->SetROP2(R2_NOTXORPEN);  
 		dc->MoveTo(getStartX(), getStartY());
-		
-		
-		dc->Ellipse(getStartX(), getStartY(),getEndX(), getEndY());
 
+		dc->Ellipse(getStartX(), getStartY(),getEndX(), getEndY());
+		
 		dc->SelectObject( oldPen ); 
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
-
 		if(!getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  
-			CRect rect(getStartX(),getStartY(),getEndX(),getEndY());
-			dc->DrawDragRect(&rect, CSize(3,3),NULL, CSize(3,3), NULL, NULL);
+			CRectTracker track;
+			CPoint pStart(getStartX(),getStartY()),pEnd(getEndX(),getEndY());
+			track.m_rect.SetRect(pStart,pEnd);
+			track.m_nStyle=CRectTracker::dottedLine^CRectTracker::resizeOutside;
 		}
-
 }
 

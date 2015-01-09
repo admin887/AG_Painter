@@ -12,5 +12,4 @@ class Elipse:public Shape
 		~Elipse();//destructor
 		Elipse &operator=( Elipse &);
 		void Paint(CDC *dc);
-
 };
