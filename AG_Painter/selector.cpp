@@ -40,7 +40,9 @@ Shape* selector::tryToSelect(CPoint p)
 }
 void selector::MouseDown(CDC *dc,CPoint newPoint)
 {
-	
+	Shape* s= 	tryToSelect(newPoint);
+
+	//s->setEndX(s->getEndX()+100);
 	
 }
 void selector::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
@@ -49,9 +51,7 @@ void selector::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 }
 void selector::DoubleClick(CDC *dc,CPoint newPoint)
 {
-	Shape* s= 	tryToSelect(newPoint);
-
-	//s->setEndX(s->getEndX()+100);
+	
 
 }
 void selector::MouseOver(CDC *dc,CPoint newPoint)
