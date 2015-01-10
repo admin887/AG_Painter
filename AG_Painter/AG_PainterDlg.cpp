@@ -326,6 +326,7 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
 		
 	}
+	//
 }
 
 
@@ -438,7 +439,7 @@ void CAG_PainterDlg::OnMouseHover(UINT nFlags, CPoint point)
 void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	isPressed=false;
-
+	Invalidate();
 }
 
 
