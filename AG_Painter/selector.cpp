@@ -11,6 +11,9 @@ selector::selector(ShapesGarage &newSG)
 Shape* selector::tryToSelect(CPoint p)
 {
 	std::list<Shape*>::iterator i;
+	Shape* FoundedShape= new NullShape();
+	bool found=false;
+
 
 	for (i =getShapeGarage()->getAliveShapes()->begin() ; i!=getShapeGarage()->getAliveShapes()->end() ; i++)
 	{
@@ -18,13 +21,18 @@ Shape* selector::tryToSelect(CPoint p)
 		   (p.y<i._Mynode()->_Myval->getEndY())
 			&&
 			((p.x>i._Mynode()->_Myval->getStartX())&&
-		(p.y>i._Mynode()->_Myval->getStartY())))
+		(p.y>i._Mynode()->_Myval->getStartY())) && !found)
 		{
 			i._Mynode()->_Myval->setIsSelected(false);
-			return i._Mynode()->_Myval;
+			//return i._Mynode()->_Myval;
+			delete(FoundedShape);
+			FoundedShape= i._Mynode()->_Myval;
+			found=true;
 		}
-	
-			
+		else
+		{
+			i._Mynode()->_Myval->setIsSelected(true);
+		}
 	}
 	return new NullShape();
 
