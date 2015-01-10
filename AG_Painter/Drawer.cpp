@@ -7,19 +7,7 @@ Drawer::Drawer(ShapesGarage &newSG)
 }
 void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 {
-
-	//getSelectedShape()->setStartX(newPoint.x);
-	//getSelectedShape()->setStartY(newPoint.y);
-
-	//if(getSelectedShape()->getEndX()== -1)
-	//{
-	//	getSelectedShape()->Paint(dc);
-	//}
-	
 	Shape *myshape=   getShapeGarage()->CreateShape(getShapeGarage()->getTypeToConstract());
-			//thisDoc.setCurrentShape(*myshape);
-	
-
 			if(!(myshape->getEndX()==-1) && !(myshape->getEndY()==-1))
 			{
 				myshape->setEndX(0);
@@ -27,7 +15,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 			}
 			myshape->setStartX(newPoint.x);
 				myshape->setStartY(newPoint.y);
-				
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
@@ -36,9 +23,6 @@ void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 {
 
-	/*getSelectedShape()->setStartX(newPoint.x);
-	getSelectedShape()->setStartY(newPoint.y);
-	getSelectedShape()->Paint(dc);*/
 }
 void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 {
@@ -54,12 +38,9 @@ void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 		getSelectedShape()->Paint(dc);
 
 		Shape *myshape=   getShapeGarage()->CreateShape(getShapeGarage()->getTypeToConstract());
-			//thisDoc.setCurrentShape(*myshape);
 	
 			myshape->setStartX(newPoint.x);
 			myshape->setStartY(newPoint.y);
-
-
 	}
 	else
 	{
