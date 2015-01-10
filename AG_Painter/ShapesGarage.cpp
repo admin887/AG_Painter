@@ -59,3 +59,11 @@ Shape* ShapesGarage::CreateShape(ENUM_SHAPES s)
 	
 
 }
+ENUM_SHAPES ShapesGarage::getTypeToConstract()
+{
+	return m_Type;
+}
+void ShapesGarage::setTypeToConstrct(ENUM_SHAPES newType)
+{
+	m_Type= newType;
+}

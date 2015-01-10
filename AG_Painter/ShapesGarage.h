@@ -10,6 +10,7 @@ class ShapesGarage
 		list<Shape*> *m_alive;
 		list<Shape*> *m_retired;
 		ShapesFactory *m_factory;
+		ENUM_SHAPES m_Type;
 	public:
 		ShapesGarage();
 		ShapesGarage(ShapesGarage &s);
@@ -18,6 +19,9 @@ class ShapesGarage
 		list<Shape*>* getAliveShapes();
 		list<Shape*>* getRetiredShapes();
 		Shape* CreateShape(ENUM_SHAPES s);
+
+		ENUM_SHAPES getTypeToConstract();
+		void setTypeToConstrct(ENUM_SHAPES newType);
 
 
 };

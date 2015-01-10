@@ -237,47 +237,27 @@ void CAG_PainterDlg::OnBnClickedOk()
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-
-
-			Shape *myshape=   myShapeGarage->CreateShape(myShapeType);
-			thisDoc.setCurrentShape(*myshape);
-
-			if(!(thisDoc.getCurrentShape().getEndX()==-1) && !(thisDoc.getCurrentShape().getEndY()==-1))
-			{
-				thisDoc.getCurrentShape().setEndX(0);
-				thisDoc.getCurrentShape().setEndY(0);	
-			}
-				thisDoc.getCurrentShape().setStartX(point.x);
-				thisDoc.getCurrentShape().setStartY(point.y);
-				isPressed=true;
+	CClientDC dc(this);
+	thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
+	thisDoc.getCurrTool().MouseDown(&dc,point);
+	std::list<Shape*>::iterator i;
+	i =myShapeGarage->getAliveShapes()->begin();
+	Shape* temp=  i._Mynode()->_Myval;
+	thisDoc.setCurrentShape(*temp);
+	isPressed=true;
 }
 
 
 void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
-	COLORREF curColor= thisDoc.getCurrentShape().getColorInside();
-
 	if(isPressed)
 	{
-
 		CClientDC dc(this);
-
-		//CBrush myBrush,*oldBrush;
-		//myBrush.CreateSolidBrush(curColor);
-		//oldBrush=dc.SelectObject( &myBrush );        
-
-		//CPen myPen1(PS_SOLID,thisDoc.getCurrentShape().getWeight(), thisDoc.getCurrentShape().getColorOutside());
-
-		//CPen *oldPen;
-		//oldPen=dc.SelectObject( &myPen1 ); 
-		//dc.SetROP2(R2_NOTXORPEN);  
 		thisDoc.getCurrTool().MouseOver(&dc,point);
-
-		//dc.SelectObject( oldPen ); 
-		//dc.SetROP2(R2_COPYPEN);  
-
-
-		//dc.SelectObject( oldBrush ); 
+		std::list<Shape*>::iterator i;
+		i =myShapeGarage->getAliveShapes()->begin();
+		Shape* temp=  i._Mynode()->_Myval;
+		thisDoc.setCurrentShape(*temp);
 	}
 }
 
