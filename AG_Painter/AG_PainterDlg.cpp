@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 //	ON_BN_CLICKED(IDC_BUTTON1, &CAG_PainterDlg::OnBnClickedButton1)
 ON_WM_LBUTTONDBLCLK()
 ON_COMMAND(ID_TOOLS_SELECT, &CAG_PainterDlg::OnToolsSelect)
+ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -120,13 +121,15 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
-	
+	curFill= RGB(255,0,0);
+	curLine=RGB(0,0,0);
+
 	myShapeGarage= new ShapesGarage();
 	myDrawer = new Drawer(*myShapeGarage);
 	mySelector= new selector(*myShapeGarage);
 
 	thisDoc.setShapeGarade(*myShapeGarage);
-	
+	thisDoc.setCurrTool(*myDrawer);
 	//Elipse *e =new Elipse();
 	//myShapeGarage->getAliveShapes()->push_back(e);
 
@@ -163,29 +166,91 @@ void CAG_PainterDlg::OnPaint()
 	CPaintDC dc (this);
 	CClientDC dc2(this);
 	CRect rect;
+
+	COLORREF myColors[]= {RGB(255,0,0),RGB(0,255,0),
+						  RGB(0,0,255),RGB(255,128,0),
+						  RGB(0,128,128),RGB(200,0,255),
+						  RGB(128,128,64),RGB(0,0,0)
+						 };
 	
     GetClientRect (&rect);
 
-	/*for(int i=0;i<150;i++)
-		for(int j=0;j<150;j++)
-			dc.SetPixel(i+15,j,RGB(i,j,0));*/
-	for(int i=0;i<50;i++)
-		for(int j=0;j<50;j++)
-			dc.SetPixel(15+i,j+30,RGB(100,50,0));
+	int startXX= 15;
+	int startYY=30;
+	int weight=50;
+	int deltaX= 5;
+	int deltaY= 5;
 
-	for(int i=0;i<50;i++)
-		for(int j=0;j<50;j++)
-			dc.SetPixel(50+5+15+i,j+30,RGB(30,50,100));
+	int Color_Counter=0;
 
-	for(int i=0;i<50;i++)
-		for(int j=0;j<50;j++)
-			dc.SetPixel(15+i,+50+5+j+30,RGB(100,50,0));
+	for (int j = 1; j <= 4; j++)
+	{
+		
+		for (int i = 1; i <= 2; i++)
+		{
+			startXX=startXX+deltaX*(i-1)+weight*(i-1);
+			
+			//dc.Rectangle(startXX,startYY,startXX+weight,startYY+weight);
 
-	/*Shape *pos;
-	for (pos=myShapeGarage->getAliveShapes()->begin(); pos!=myShapeGarage->getAliveShapes()->end; ++pos) {
-        
-		 pos->Paint(&dc);
-    }*/
+			CBrush myBrush,*oldBrush;
+			myBrush.CreateSolidBrush(myColors[Color_Counter]);
+			oldBrush=dc.SelectObject( &myBrush );        
+
+			CPen myPen1(PS_SOLID,1, myColors[Color_Counter]);
+
+			CPen *oldPen;
+			oldPen=dc.SelectObject( &myPen1 ); 
+			dc.SetROP2(R2_NOTXORPEN);  
+			dc.MoveTo(startXX, startYY);
+
+			dc.Rectangle(startXX,startYY,startXX+weight,startYY+weight);
+		
+			dc.SelectObject( oldPen ); 
+			dc.SetROP2(R2_COPYPEN);  
+			dc.SelectObject( oldBrush ); 
+			Color_Counter++;
+			
+		}
+		startXX =15;
+		startYY= startYY+deltaY+weight;
+	}
+
+		CBrush myBrush,*oldBrush;
+		myBrush.CreateSolidBrush(curFill);
+			oldBrush=dc.SelectObject( &myBrush );        
+
+			CPen myPen1(PS_SOLID,1, RGB(0,0,0));
+
+			CPen *oldPen;
+			oldPen=dc.SelectObject( &myPen1 ); 
+			dc.SetROP2(R2_NOTXORPEN);  
+			
+
+			dc.Rectangle(15,332,120,330+20);
+		
+			dc.SelectObject( oldPen ); 
+			dc.SetROP2(R2_COPYPEN);  
+			dc.SelectObject( oldBrush ); 
+	
+		
+			CBrush myBrush2,*oldBrush2;
+			myBrush2.CreateSolidBrush(curLine);
+			oldBrush2=dc.SelectObject( &myBrush2 );        
+
+			CPen myPen2(PS_SOLID,1, RGB(0,0,0));
+
+			CPen *oldPen2;
+			oldPen2=dc.SelectObject( &myPen2 ); 
+			dc.SetROP2(R2_NOTXORPEN);  
+			
+
+			dc.Rectangle(15,370,120,370+20);
+		
+			dc.SelectObject( oldPen ); 
+			dc.SetROP2(R2_COPYPEN);  
+			dc.SelectObject( oldBrush2 );
+	
+
 	int ListSize= myShapeGarage->getAliveShapes()->_Mysize;
 
 	std::list<Shape*>::iterator i;
@@ -195,7 +260,7 @@ void CAG_PainterDlg::OnPaint()
 		i._Mynode()->_Myval->Paint(&dc);
 	}
 
-
+//	dc.Rectangle(10,20,120,250);
 
 
 
@@ -238,13 +303,29 @@ void CAG_PainterDlg::OnBnClickedOk()
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	CClientDC dc(this);
-	thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
-	thisDoc.getCurrTool().MouseDown(&dc,point);
-	std::list<Shape*>::iterator i;
-	i =myShapeGarage->getAliveShapes()->begin();
-	Shape* temp=  i._Mynode()->_Myval;
-	thisDoc.setCurrentShape(*temp);
-	isPressed=true;
+	if(point.x<120 && point.y<250 && point.x>10 && point.y > 20)
+	{
+		curFill= dc.GetPixel(point.x,point.y);
+		Invalidate();
+	}
+	else
+	{
+
+	
+		thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
+		thisDoc.getCurrTool().MouseDown(&dc,point);
+		std::list<Shape*>::iterator i;
+		i =myShapeGarage->getAliveShapes()->begin();
+		Shape* temp=  i._Mynode()->_Myval;
+		thisDoc.setCurrentShape(*temp);
+
+		temp->setColorInside(curFill);
+		temp->setColorOutside(curLine);
+
+		isPressed=true;
+
+		
+	}
 }
 
 
@@ -382,4 +463,16 @@ void CAG_PainterDlg::OnToolsSelect()
 	thisDoc.setCurrTool(*mySelector);
 		
 	
+}
+
+
+void CAG_PainterDlg::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+	if(point.x<120 && point.y<250 && point.x>10 && point.y > 20)
+	{
+	CClientDC dc(this);
+	curLine= dc.GetPixel(point.x,point.y);
+	Invalidate();
+	}
 }

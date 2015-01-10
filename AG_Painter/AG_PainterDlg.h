@@ -59,4 +59,7 @@ public:
 	ENUM_SHAPES myShapeType;
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 	afx_msg void OnToolsSelect();
+	COLORREF curFill;
+	COLORREF curLine;
+	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 };

@@ -58,11 +58,11 @@ void Point::Paint(CDC *dc)
 		myBrush.CreateSolidBrush(getColorInside());
 		oldBrush=dc->SelectObject( &myBrush );        
 
-		CPen myPen1(PS_SOLID,getWeight(), getColorOutside());
+		CPen myPen1(PS_SOLID,getWeight(), getColorInside());
 
 		CPen *oldPen;
 		oldPen=dc->SelectObject( &myPen1 ); 
-		dc->SetROP2(R2_NOTXORPEN);  
+		//dc->SetROP2(R2_NOTXORPEN);  
 		
 
 
@@ -70,11 +70,11 @@ void Point::Paint(CDC *dc)
 
 		dc->MoveTo(getStartX(), getStartY());
 		dc->Ellipse(getStartX()-getWeight()/2,getStartY()-getWeight()/2,getStartX()+getWeight()/2,getStartY()+getWeight()/2);
-
+		
 
 
 		dc->SelectObject( oldPen ); 
-		dc->SetROP2(R2_COPYPEN);  
+		//dc->SetROP2(R2_COPYPEN);  
 
 
 		dc->SelectObject( oldBrush ); 
