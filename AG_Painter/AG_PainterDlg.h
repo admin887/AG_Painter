@@ -8,6 +8,7 @@
 #include "drawer.h"
 #include "EnumShapes.h"
 #include "selector.h"
+#include "Mover.h"
 //nclude "Document.h"
 
 // CAG_PainterDlg dialog
@@ -62,4 +63,6 @@ public:
 	COLORREF curFill;
 	COLORREF curLine;
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnToolsMove();
+	Mover *myMover;
 };

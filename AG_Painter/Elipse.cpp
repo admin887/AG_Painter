@@ -77,6 +77,7 @@ void Elipse::Paint(CDC *dc)
 		dc->SelectObject( oldPen ); 
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
+		
 		if(!getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  

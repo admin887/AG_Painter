@@ -86,6 +86,7 @@ BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
 ON_WM_LBUTTONDBLCLK()
 ON_COMMAND(ID_TOOLS_SELECT, &CAG_PainterDlg::OnToolsSelect)
 ON_WM_RBUTTONDOWN()
+ON_COMMAND(ID_TOOLS_MOVE, &CAG_PainterDlg::OnToolsMove)
 END_MESSAGE_MAP()
 
 
@@ -127,6 +128,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	myShapeGarage= new ShapesGarage();
 	myDrawer = new Drawer(*myShapeGarage);
 	mySelector= new selector(*myShapeGarage);
+	myMover= new Mover(*myShapeGarage);
 
 	thisDoc.setShapeGarade(*myShapeGarage);
 	thisDoc.setCurrTool(*myDrawer);
@@ -310,8 +312,7 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 	else
 	{
-
-	
+		
 		thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
 		thisDoc.getCurrTool().MouseDown(&dc,point);
 		std::list<Shape*>::iterator i;
@@ -476,4 +477,11 @@ void CAG_PainterDlg::OnRButtonDown(UINT nFlags, CPoint point)
 	curLine= dc.GetPixel(point.x,point.y);
 	Invalidate();
 	}
+}
+
+
+void CAG_PainterDlg::OnToolsMove()
+{
+		myShapeType = E_NULLSHAPE;
+		thisDoc.setCurrTool(*myMover);
 }

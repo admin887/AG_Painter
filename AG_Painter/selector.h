@@ -5,6 +5,8 @@
 class selector: public Tool
 {
 	public:
+	
+		selector();
 		selector(ShapesGarage &SG);
 		Shape* tryToSelect(CPoint);
 		virtual void MouseDown(CDC *dc,CPoint);

@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <iterator>
 #pragma once
+selector::selector()
+{
+	
+}
 selector::selector(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
@@ -34,7 +38,7 @@ Shape* selector::tryToSelect(CPoint p)
 			i._Mynode()->_Myval->setIsSelected(true);
 		}
 	}
-	return new NullShape();
+	return FoundedShape;
 
 
 }
