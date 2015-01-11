@@ -67,3 +67,20 @@ void ShapesGarage::setTypeToConstrct(ENUM_SHAPES newType)
 {
 	m_Type= newType;
 }
+
+COLORREF ShapesGarage::getCurrFill()
+	{
+		return m_currFill;
+	}
+COLORREF ShapesGarage::getcurrLine()
+	{
+		return m_currLine;
+	}
+void ShapesGarage::setCurFill(COLORREF newCurFill)
+	{
+		m_currFill= newCurFill;
+	}
+void ShapesGarage::setCurrLine(COLORREF newCurrLine)
+	{
+		m_currLine= newCurrLine;
+	}

@@ -11,6 +11,8 @@ class ShapesGarage
 		list<Shape*> *m_retired;
 		ShapesFactory *m_factory;
 		ENUM_SHAPES m_Type;
+		COLORREF m_currFill;
+		COLORREF m_currLine;
 	public:
 		ShapesGarage();
 		ShapesGarage(ShapesGarage &s);
@@ -22,6 +24,11 @@ class ShapesGarage
 
 		ENUM_SHAPES getTypeToConstract();
 		void setTypeToConstrct(ENUM_SHAPES newType);
+
+		COLORREF getCurrFill();
+		COLORREF getcurrLine();
+		void setCurFill(COLORREF newCurFill);
+		void setCurrLine(COLORREF newCurrLine);
 
 
 };

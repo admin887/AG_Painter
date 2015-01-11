@@ -8,6 +8,7 @@
 Mover::Mover(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
+	isPressed=false;
 }
 
 void Mover::MouseDown(CDC *dc,CPoint newPoint)
@@ -17,7 +18,7 @@ void Mover::MouseDown(CDC *dc,CPoint newPoint)
 		FoundedShape->Paint(dc);
 		isPressed= true;
 		FoundedShape->Paint(dc);
-
+			isPressed=true;
 
 	//s->setEndX(s->getEndX()+100);
 	

@@ -37,13 +37,8 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedOk();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedDraw2();
-	afx_msg void OnBnClickedDraw();
-	afx_msg void OnBnClickedMfccolorbutton3();
 	afx_msg void OnBnClickedMfccolorbutton1();
 	afx_msg void OnDrawElipse();
 	Document thisDoc;
@@ -51,9 +46,9 @@ public:
 	afx_msg void OnDrawRectangle();
 	afx_msg void OnDrawLine();
 	afx_msg void OnDrawPoints();
-	afx_msg void OnMouseHover(UINT nFlags, CPoint point);
+
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnBnClickedButton1();
+	
 	ShapesGarage *myShapeGarage;
 	Drawer *myDrawer;
 	selector *mySelector;

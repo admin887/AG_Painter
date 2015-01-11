@@ -4,6 +4,7 @@
 Drawer::Drawer(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
+		isPressed= false;
 }
 void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 {
@@ -15,10 +16,18 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 			}
 			myshape->setStartX(newPoint.x);
 				myshape->setStartY(newPoint.y);
+		isPressed=true;
+
+		myshape->setColorInside(getShapeGarage()->getCurrFill());
+		myshape->setColorOutside(getShapeGarage()->getcurrLine());
+
+
+
+
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
-
+	isPressed=false;
 }
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -26,6 +35,11 @@ void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 }
 void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 {
+	if(!isPressed)
+	{
+		return;
+	}
+
 	if(!(getSelectedShape()->getEndX()==0) && !(getSelectedShape()->getEndY()==0))
 	{
 		getSelectedShape()->Paint(dc);

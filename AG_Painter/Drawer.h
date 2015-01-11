@@ -4,6 +4,8 @@
 #pragma once
 class Drawer: public Tool
 {
+private:
+		bool isPressed;
 public:
 		Drawer(ShapesGarage &SG);
 		virtual void MouseDown(CDC *dc,CPoint);
