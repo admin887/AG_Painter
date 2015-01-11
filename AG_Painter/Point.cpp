@@ -10,7 +10,6 @@ Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 	setEndY(-1);
 
 	setWeight(newWeight);
-	//setWeight(4);
 	setColorInside(newColor);
 	setColorOutside(newColor);
 }
@@ -45,17 +44,6 @@ const Point &Point::operator=(Point &p)
  
 void Point::Paint(CDC *dc)
 {
-	
-	//int tempX=getStartX();
-	//int tempY=getStartY();
-	//dc->MoveTo(tempX,tempY);
-	//CBrush fill(getColorInside());
-	//CPen border(PS_SOLID,1,getColorInside());
-	//dc->SelectObject(&border);
-	//dc->SelectObject(&fill);
-	//dc->Ellipse(tempX-getWeight()/2,tempY-getWeight()/2,tempX+getWeight()/2,tempY+getWeight()/2);
-
-
 		CBrush myBrush,*oldBrush;
 		myBrush.CreateSolidBrush(getColorInside());
 		oldBrush=dc->SelectObject( &myBrush );        
@@ -64,24 +52,11 @@ void Point::Paint(CDC *dc)
 
 		CPen *oldPen;
 		oldPen=dc->SelectObject( &myPen1 ); 
-		//dc->SetROP2(R2_NOTXORPEN);  
-		
-
-
-
-
 		dc->MoveTo(getStartX(), getStartY());
 		dc->Ellipse(getStartX()-getWeight()/2,getStartY()-getWeight()/2,getStartX()+getWeight()/2,getStartY()+getWeight()/2);
-		
-
-
 		dc->SelectObject( oldPen ); 
 		//dc->SetROP2(R2_COPYPEN);  
 
-
 		dc->SelectObject( oldBrush ); 
-
-
-
 }
 

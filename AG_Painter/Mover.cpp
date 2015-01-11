@@ -19,9 +19,6 @@ void Mover::MouseDown(CDC *dc,CPoint newPoint)
 		isPressed= true;
 		FoundedShape->Paint(dc);
 			isPressed=true;
-
-	//s->setEndX(s->getEndX()+100);
-	
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
@@ -50,10 +47,6 @@ void Mover::MouseOver(CDC *dc,CPoint newPoint)
 
 		FoundedShape->setEndX(FoundedShape->getEndX()+deltaX);
 		FoundedShape->setEndY(FoundedShape->getEndY()+deltaY);
-
-
-		/*FoundedShape->setEndX(0);
-		FoundedShape->setEndY(0);*/
 
 		FoundedShape->Paint(dc);
 
