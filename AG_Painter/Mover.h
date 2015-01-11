@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "selector.h"
+#pragma once
 class Mover: public selector
 {
 	public:

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "NullShape.h"
+#pragma once
 
 NullShape::NullShape()
 {

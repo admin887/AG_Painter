@@ -2,9 +2,6 @@
 #include "ISelectable.h"
 #include "Colorable.h"
 #include "IWeightable.h"
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
 #pragma once;
 
 class Shape : public ISelectable, public IColorable, public IWeightable

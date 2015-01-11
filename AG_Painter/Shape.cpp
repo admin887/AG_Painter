@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Shape.h"
+#pragma once
+
 	bool Shape::getIsSelected()
 	{
 		return m_isSelected;

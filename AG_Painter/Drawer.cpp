@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Drawer.h"
+#pragma once
 
 Drawer::Drawer(ShapesGarage &newSG)
 {
@@ -20,9 +21,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 
 		myshape->setColorInside(getShapeGarage()->getCurrFill());
 		myshape->setColorOutside(getShapeGarage()->getcurrLine());
-
-
-
 
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver

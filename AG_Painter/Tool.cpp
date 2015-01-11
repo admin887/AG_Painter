@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Tool.h"
+#pragma once
+
 Shape* Tool::getSelectedShape()
 {
 	return SelectedShape;

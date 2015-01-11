@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Elipse.h"
-
+#pragma once
 Elipse::Elipse(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {
 	setStartX(newP1.getStartX());

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Rectangle.h"
+#pragma once
 
 Rec::Rec(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {

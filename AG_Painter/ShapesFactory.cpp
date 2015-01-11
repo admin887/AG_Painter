@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ShapesFactory.h"
 #include "NullShape.h"
+#pragma once
 ShapesFactory* ShapesFactory::s = nullptr;
 ShapesFactory::ShapesFactory()
 {

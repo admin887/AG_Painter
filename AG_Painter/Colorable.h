@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <Windows.h>
-
+#pragma once
 class IColorable
 {
 protected:

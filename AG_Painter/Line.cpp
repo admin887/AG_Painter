@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Line.h"
+#pragma once
 //#include <iostream>
 
 Line::Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor)

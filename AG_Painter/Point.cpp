@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Point.h"
+#pragma once
+
 Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 {
 	setStartX(newX);

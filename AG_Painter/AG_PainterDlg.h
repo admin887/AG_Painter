@@ -6,7 +6,6 @@
 #include "document.h"
 #include "shapesgarage.h"
 #include "drawer.h"
-#include "EnumShapes.h"
 #include "selector.h"
 #include "Mover.h"
 //nclude "Document.h"

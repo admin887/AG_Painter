@@ -126,9 +126,6 @@
     <ClInclude Include="ToolNull.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="EnumShapes.h">
-      <Filter>Header Files\General</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AG_Painter.cpp">

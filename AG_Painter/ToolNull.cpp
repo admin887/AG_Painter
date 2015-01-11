@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ToolNull.h"
+#pragma once
 
 void ToolNull::MouseDown(CDC *dc,CPoint newPoint)
 {

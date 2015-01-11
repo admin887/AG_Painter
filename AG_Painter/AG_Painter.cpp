@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "AG_Painter.h"
 #include "AG_PainterDlg.h"
+#pragma once
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
