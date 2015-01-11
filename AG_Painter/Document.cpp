@@ -7,10 +7,6 @@ Document::Document(Tool* newCurTool, Shape* newShape)
 {
 	setCurrTool(*newCurTool);
 	setCurrentShape(*newShape);
-
-	//m_Selector= new Selector()
-	//..
-	//..
 	sg= new ShapesGarage();
 }
 Tool &Document::getCurrTool()
