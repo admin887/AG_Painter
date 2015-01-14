@@ -14,7 +14,7 @@
 
 CAG_PainterDlg::CAG_PainterDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CAG_PainterDlg::IDD, pParent)
-	, isPressed(false)
+	
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -250,7 +250,6 @@ void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	CClientDC dc(this);
 	thisDoc.getCurrTool().MouseUp(&dc,point);
-	isPressed=false;
 	Invalidate();
 }
 void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)

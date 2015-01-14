@@ -38,7 +38,7 @@ void Mover::MouseOver(CDC *dc,CPoint newPoint)
 		int deltaX= (newPoint.x- fPoint.x);
 		int deltaY= (newPoint.y- fPoint.y);
 
-		FoundedShape->setIsSelected(true);
+		FoundedShape->setIsSelected(false);
 
 			FoundedShape->Paint(dc);
 

@@ -9,7 +9,7 @@ Rec::Rec(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORR
 
 	setEndX(newP2.getStartX());
 	setEndY(newP2.getStartY());
-
+	setIsSelected(false);
 	setWeight(newWeight);
 	setColorOutside(newOutsideColor);
 	setColorInside(newInsideColor);
@@ -19,7 +19,7 @@ Rec::Rec(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newInsi
 {
 	setStartX(newX1);
 	setStartY(newY1);
-
+	setIsSelected(false);
 	setEndX(newX2);
 	setEndY(newY2);
 	
@@ -35,7 +35,7 @@ Rec::Rec(Rec& e)
 	setStartY(e.getStartY());
 	setEndX(e.getEndX());
 	setEndY(e.getEndY());
-
+	setIsSelected(false);
 	setWeight(e.getWeight());
 	setColorOutside(e.getColorOutside());
 	setColorInside(e.getColorInside());
@@ -75,7 +75,7 @@ void Rec::Paint(CDC *dc)
 		dc->SelectObject( oldPen ); 
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
-		if(!getIsSelected())
+		if(getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  
 			CRectTracker track;

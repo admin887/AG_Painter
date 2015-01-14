@@ -8,7 +8,7 @@ Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 	setStartY(newY);
 	setEndX(-1);
 	setEndY(-1);
-
+	setIsSelected(false);
 	setWeight(newWeight);
 	setColorInside(newColor);
 	setColorOutside(newColor);
@@ -19,7 +19,7 @@ Point::Point(Point &p)
 	setStartY(p.getStartY());
 	setEndX(p.getEndX());
 	setEndY(p.getEndY());
-
+	setIsSelected(false);
 	setWeight(p.getWeight());
 	setColorInside(p.getColorInside());
 	setColorOutside(p.getColorOutside());

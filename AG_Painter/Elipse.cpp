@@ -8,7 +8,7 @@ Elipse::Elipse(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, 
 
 	setEndX(newP2.getStartX());
 	setEndY(newP2.getStartY());
-
+	setIsSelected(false);
 	setWeight(newWeight);
 	setColorOutside(newOutsideColor);
 	setColorInside(newInsideColor);
@@ -21,7 +21,7 @@ Elipse::Elipse(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF n
 
 	setEndX(newX2);
 	setEndY(newY2);
-	
+	setIsSelected(false);
 	
 	setWeight(newWeight);
 	setColorInside(newInsideColor);
@@ -78,7 +78,7 @@ void Elipse::Paint(CDC *dc)
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
 		
-		if(!getIsSelected())
+		if(getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  
 			CRectTracker track;

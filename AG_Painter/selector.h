@@ -8,6 +8,8 @@ class selector: public Tool
 	
 		selector();
 		selector(ShapesGarage &SG);
+		~selector();
+		selector &operator=( selector &);
 		Shape* tryToSelect(CPoint);
 		virtual void MouseDown(CDC *dc,CPoint);
 		virtual void MouseUp(CDC *dc,CPoint);

@@ -11,8 +11,7 @@ Line::Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor)
 
 	setEndX(newEnd.getStartX());
 	setEndY(newEnd.getStartY());
-
-
+	setIsSelected(false);
 	setWeight(newWeight);
 	setColorInside(newColor);
 	setColorOutside(newColor);
@@ -25,7 +24,7 @@ Line::Line(int newX1,int newY1,int newX2,int newY2,int newWeight, COLORREF newCo
 
 	setEndX(newX2);
 	setEndY(newY2);
-
+	setIsSelected(false);
 	setWeight(newWeight);
 	setColorInside(newColor);
 	setColorOutside(newColor);
@@ -38,7 +37,7 @@ Line::Line(Line& l)
 
 	setEndX(l.getEndX());
 	setEndY(l.getEndY());
-
+	setIsSelected(false);
 	setWeight(l.getWeight());
 	setColorInside(l.getColorInside());
 	setColorOutside(l.getColorOutside());
@@ -78,7 +77,7 @@ void Line::Paint(CDC *dc)
 		dc->SetROP2(R2_COPYPEN);  
 		dc->SelectObject( oldBrush ); 
 
-		if(!getIsSelected())
+		if(getIsSelected())
 		{
 			dc->SetROP2(R2_NOTXORPEN);  
 			CRectTracker track;

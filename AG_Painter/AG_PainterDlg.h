@@ -41,7 +41,6 @@ public:
 	afx_msg void OnBnClickedMfccolorbutton1();
 	afx_msg void OnDrawElipse();
 	Document thisDoc;
-	bool isPressed;
 	afx_msg void OnDrawRectangle();
 	afx_msg void OnDrawLine();
 	afx_msg void OnDrawPoints();
