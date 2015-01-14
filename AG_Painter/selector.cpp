@@ -58,11 +58,11 @@ Shape* selector::tryToSelect(CPoint p)
 
 
 
-		if((p.x<maxX)&&
-		   (p.y<maxY)
+		if((p.x<3+maxX)&&
+		   (p.y<3+maxY)
 			&&
-			((p.x>minX)&&
-		(p.y>minY) && !found))
+			((p.x>minX-3)&&
+		(p.y>minY-3) && !found))
 		{
 			i._Mynode()->_Myval->setIsSelected(true);
 			delete(FoundedShape);
