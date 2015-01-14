@@ -11,8 +11,6 @@ class Mover: public selector
 		/*	bool isfirstClicked;*/		
 		Mover(ShapesGarage &);
 		Mover(Mover &);
-		bool getIsPressed();
-		void setIsPressed(bool);
 		Shape* getMfoundShape();
 		void setMfoundShape(Shape *);
 		CPoint* getFpoint();
