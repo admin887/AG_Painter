@@ -9,7 +9,14 @@ class Mover: public selector
 		CPoint m_fPoint;
 	public:
 		/*	bool isfirstClicked;*/		
-		Mover(ShapesGarage &SG);
+		Mover(ShapesGarage &);
+		Mover(Mover &);
+		bool getIsPressed();
+		void setIsPressed(bool);
+		Shape* getMfoundShape();
+		void setMfoundShape(Shape *);
+		CPoint* getFpoint();
+		void setFpoint(CPoint);
 		virtual void MouseDown(CDC *dc,CPoint);
 		virtual void MouseUp(CDC *dc,CPoint);
 		virtual void DoubleClick(CDC *dc,CPoint);

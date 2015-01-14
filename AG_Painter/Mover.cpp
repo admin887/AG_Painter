@@ -8,20 +8,47 @@
 Mover::Mover(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
-	setIsSelected(false);
+	setIsPressed(false);
+}
+Mover::Mover(Mover &newMover)
+{
+	setShapeGarage(*newMover.getShapeGarage());
+	setIsPressed(newMover.getIsPressed());
+}
+Mover &Mover::operator=(Mover &newMover)
+{
+	setShapeGarage(*newMover.getShapeGarage());
+	setIsPressed
+	return *this;
+}
+Shape* Mover::getMfoundShape()
+{
+	return m_FoundedShape;
+}
+void Mover::setMfoundShape(Shape* newMfoundShape)
+{
+	m_FoundedShape=newMfoundShape;
+}
+CPoint* Mover::getFpoint()
+{
+	return &m_fPoint;
+}
+void Mover::setFpoint(CPoint newFpoint)
+{
+	m_fPoint=newFpoint;
 }
 void Mover::MouseDown(CDC *dc,CPoint newPoint)
 {
-		m_FoundedShape= 	tryToSelect(newPoint);
+		setMfoundShape(tryToSelect(newPoint));
 		m_fPoint.SetPoint(newPoint.x,newPoint.y);
-		m_FoundedShape->Paint(dc);
-		setIsSelected(true);
-		m_FoundedShape->Paint(dc);
+		getMfoundShape()->Paint(dc);
+		setIsPressed(true);
+		getMfoundShape()->Paint(dc);
+		setIsPressed(true);
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
-
-	setIsSelected(false);
+	setIsPressed(false);
 }
 void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -31,25 +58,24 @@ void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
 
-	if(getIsSelected())
+	if(getIsPressed())
 	{
-		int deltaX= (newPoint.x- m_fPoint.x);
-		int deltaY= (newPoint.y- m_fPoint.y);
+		int deltaX= (newPoint.x- getFpoint()->x);
+		int deltaY= (newPoint.y- getFpoint()->y);
 
-		m_FoundedShape->setIsSelected(false);
+		getMfoundShape()->setIsSelected(false);
 
-		m_FoundedShape->Paint(dc);
+		getMfoundShape()->Paint(dc);
 
-		m_FoundedShape->setStartX(m_FoundedShape->getStartX()+deltaX);
-		m_FoundedShape->setStartY(m_FoundedShape->getStartY()+deltaY);
+		getMfoundShape()->setStartX(getMfoundShape()->getStartX()+deltaX);
+		getMfoundShape()->setStartY(getMfoundShape()->getStartY()+deltaY);
 
-		m_FoundedShape->setEndX(m_FoundedShape->getEndX()+deltaX);
-		m_FoundedShape->setEndY(m_FoundedShape->getEndY()+deltaY);
+		getMfoundShape()->setEndX(getMfoundShape()->getEndX()+deltaX);
+		getMfoundShape()->setEndY(getMfoundShape()->getEndY()+deltaY);
 
-		m_FoundedShape->Paint(dc);
+		getMfoundShape()->Paint(dc);
 
-		m_fPoint.SetPoint(newPoint.x,newPoint.y);
-
+		getFpoint()->SetPoint(newPoint.x,newPoint.y);
 	}
 
 
