@@ -11,22 +11,22 @@ Document::Document(Tool* newCurTool, Shape* newShape)
 }
 Tool &Document::getCurrTool()
 {
-	return *curTool;
+	return *m_curTool;
 }
 
 void Document::setCurrTool(Tool &newCurTool)
 {
-	curTool=  &newCurTool;
+	m_curTool=  &newCurTool;
 }
 
 Shape &Document::getCurrentShape()
 {
-	return *currShape;
+	return *m_currShape;
 }
 void Document::setCurrentShape(Shape &newShape)
 {
-	currShape= &newShape;
-	getCurrTool().setSelectedShape(currShape);
+	m_currShape= &newShape;
+	getCurrTool().setSelectedShape(m_currShape);
 }
 Document &Document::operator=(Document &newDocument)
 {
@@ -40,4 +40,14 @@ ShapesGarage* Document::getShapeGarade()
 void Document::setShapeGarade(ShapesGarage &newsg)
 {
 	sg= &newsg;
+}
+Document::~Document(void)
+{
+
+}
+
+Document::Document(Document &newDoc)
+{
+	setCurrTool(newDoc.getCurrTool());
+	setCurrentShape(newDoc.getCurrentShape());
 }

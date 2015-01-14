@@ -7,13 +7,13 @@
 class Document
 {
 private:
-	Tool *curTool;
-	Shape *currShape;
+	Tool *m_curTool;
+	Shape *m_currShape;
 	ShapesGarage *sg;
 	
 public:
 	Document(Tool *newCurTool=new ToolNull(), Shape *newShape=new NullShape());
-
+	~Document(void);
 	Tool &getCurrTool();
 	void setCurrTool(Tool &newCurTool);
 
@@ -24,5 +24,5 @@ public:
 
 	ShapesGarage* getShapeGarade();
 	void setShapeGarade(ShapesGarage &newsg);
-
+	Document(Document &newDocument);
 };
