@@ -8,22 +8,21 @@
 Mover::Mover(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
-	isPressed=false;
+	m_isPressed=false;
 }
-
 void Mover::MouseDown(CDC *dc,CPoint newPoint)
 {
-		FoundedShape= 	tryToSelect(newPoint);
-		fPoint.SetPoint(newPoint.x,newPoint.y);
-		FoundedShape->Paint(dc);
-		isPressed= true;
-		FoundedShape->Paint(dc);
-			isPressed=true;
+		m_FoundedShape= 	tryToSelect(newPoint);
+		m_fPoint.SetPoint(newPoint.x,newPoint.y);
+		m_FoundedShape->Paint(dc);
+		m_isPressed= true;
+		m_FoundedShape->Paint(dc);
+		m_isPressed=true;
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 
-	isPressed= false;
+	m_isPressed= false;
 }
 void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -33,24 +32,24 @@ void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
 
-	if(isPressed)
+	if(m_isPressed)
 	{
-		int deltaX= (newPoint.x- fPoint.x);
-		int deltaY= (newPoint.y- fPoint.y);
+		int deltaX= (newPoint.x- m_fPoint.x);
+		int deltaY= (newPoint.y- m_fPoint.y);
 
-		FoundedShape->setIsSelected(false);
+		m_FoundedShape->setIsSelected(false);
 
-			FoundedShape->Paint(dc);
+		m_FoundedShape->Paint(dc);
 
-		FoundedShape->setStartX(FoundedShape->getStartX()+deltaX);
-		FoundedShape->setStartY(FoundedShape->getStartY()+deltaY);
+		m_FoundedShape->setStartX(m_FoundedShape->getStartX()+deltaX);
+		m_FoundedShape->setStartY(m_FoundedShape->getStartY()+deltaY);
 
-		FoundedShape->setEndX(FoundedShape->getEndX()+deltaX);
-		FoundedShape->setEndY(FoundedShape->getEndY()+deltaY);
+		m_FoundedShape->setEndX(m_FoundedShape->getEndX()+deltaX);
+		m_FoundedShape->setEndY(m_FoundedShape->getEndY()+deltaY);
 
-		FoundedShape->Paint(dc);
+		m_FoundedShape->Paint(dc);
 
-		fPoint.SetPoint(newPoint.x,newPoint.y);
+		m_fPoint.SetPoint(newPoint.x,newPoint.y);
 
 	}
 
