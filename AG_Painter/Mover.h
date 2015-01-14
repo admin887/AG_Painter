@@ -10,6 +10,7 @@ class Mover: public selector
 		/*	bool isfirstClicked;*/		
 		Mover(ShapesGarage &);
 		Mover(Mover &);
+		Mover &operator=( Mover &);
 		Shape* getMfoundShape();
 		void setMfoundShape(Shape *);
 		CPoint* getFpoint();

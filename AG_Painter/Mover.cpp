@@ -15,7 +15,12 @@ Mover::Mover(Mover &newMover)
 	setShapeGarage(*newMover.getShapeGarage());
 	setIsSelected(newMover.getIsSelected());
 }
-
+Mover &Mover::operator=(Mover &newMover)
+{
+	setShapeGarage(*newMover.getShapeGarage());
+	setIsSelected(newMover.getIsSelected());
+	return *this;
+}
 Shape* Mover::getMfoundShape()
 {
 	return m_FoundedShape;

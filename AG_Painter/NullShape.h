@@ -7,6 +7,8 @@ class NullShape:public Shape
 {
 	public:
 		NullShape();
+		NullShape(NullShape &);
+		NullShape &operator=( NullShape &);
 		~NullShape();//destructor
 		void Paint(CDC *dc);
 
