@@ -4,7 +4,6 @@
 class Mover: public selector
 {
 	protected:
-		//bool m_isPressed;
 		Shape* m_FoundedShape;
 		CPoint m_fPoint;
 	public:

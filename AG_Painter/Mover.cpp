@@ -8,19 +8,14 @@
 Mover::Mover(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
-	setIsPressed(false);
+	setIsSelected(false);
 }
 Mover::Mover(Mover &newMover)
 {
 	setShapeGarage(*newMover.getShapeGarage());
-	setIsPressed(newMover.getIsPressed());
+	setIsSelected(newMover.getIsSelected());
 }
-Mover &Mover::operator=(Mover &newMover)
-{
-	setShapeGarage(*newMover.getShapeGarage());
-	setIsPressed
-	return *this;
-}
+
 Shape* Mover::getMfoundShape()
 {
 	return m_FoundedShape;
@@ -42,13 +37,13 @@ void Mover::MouseDown(CDC *dc,CPoint newPoint)
 		setMfoundShape(tryToSelect(newPoint));
 		m_fPoint.SetPoint(newPoint.x,newPoint.y);
 		getMfoundShape()->Paint(dc);
-		setIsPressed(true);
+		setIsSelected(true);
 		getMfoundShape()->Paint(dc);
-		setIsPressed(true);
+		setIsSelected(true);
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
-	setIsPressed(false);
+	setIsSelected(false);
 }
 void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -58,7 +53,7 @@ void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
 
-	if(getIsPressed())
+	if(getIsSelected())
 	{
 		int deltaX= (newPoint.x- getFpoint()->x);
 		int deltaY= (newPoint.y- getFpoint()->y);
