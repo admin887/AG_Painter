@@ -2,7 +2,7 @@
 #include "IAction.h"
 #include "ShapesGarage.h"
 #pragma once
-class Tool: public IAction
+class Tool: public IAction, public ISelectable
 {
 	private:
 		Shape *SelectedShape;
@@ -16,4 +16,6 @@ class Tool: public IAction
 		void setSelectedShape(Shape *); 
 		ShapesGarage* getShapeGarage();
 		void setShapeGarage(ShapesGarage &newSG);
+		bool getIsSelected();
+		void setIsSelected(bool newIsSelected) ;
 };

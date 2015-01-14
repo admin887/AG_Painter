@@ -8,21 +8,20 @@
 Mover::Mover(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
-	m_isPressed=false;
+	setIsSelected(false);
 }
 void Mover::MouseDown(CDC *dc,CPoint newPoint)
 {
 		m_FoundedShape= 	tryToSelect(newPoint);
 		m_fPoint.SetPoint(newPoint.x,newPoint.y);
 		m_FoundedShape->Paint(dc);
-		m_isPressed= true;
+		setIsSelected(true);
 		m_FoundedShape->Paint(dc);
-		m_isPressed=true;
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 
-	m_isPressed= false;
+	setIsSelected(false);
 }
 void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -32,7 +31,7 @@ void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
 
-	if(m_isPressed)
+	if(getIsSelected())
 	{
 		int deltaX= (newPoint.x- m_fPoint.x);
 		int deltaY= (newPoint.y- m_fPoint.y);
