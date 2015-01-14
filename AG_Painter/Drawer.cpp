@@ -1,11 +1,28 @@
 #include "stdafx.h"
 #include "Drawer.h"
 #pragma once
-
+Drawer::Drawer()
+{
+	
+}
 Drawer::Drawer(ShapesGarage &newSG)
 {
 	setShapeGarage(newSG);
-		isPressed= false;
+		m_isPressed= false;
+}
+Drawer &Drawer::operator=(Drawer newDrawer)
+{
+	return newDrawer;
+}
+Drawer::Drawer(Drawer &d)
+{
+	this->setSelectedShape(d.getSelectedShape());
+	//this->setShapeGarage(d.getShapeGarage());
+
+}
+Drawer::~Drawer(void)
+{
+
 }
 void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 {
@@ -17,7 +34,7 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 			}
 			myshape->setStartX(newPoint.x);
 				myshape->setStartY(newPoint.y);
-		isPressed=true;
+		m_isPressed=true;
 
 		myshape->setColorInside(getShapeGarage()->getCurrFill());
 		myshape->setColorOutside(getShapeGarage()->getcurrLine());
@@ -25,7 +42,7 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
-	isPressed=false;
+	m_isPressed=false;
 }
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 {
@@ -33,7 +50,7 @@ void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
 }
 void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 {
-	if(!isPressed)
+	if(!m_isPressed)
 	{
 		return;
 	}
