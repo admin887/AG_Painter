@@ -8,6 +8,7 @@
 #include "drawer.h"
 #include "selector.h"
 #include "Mover.h"
+#include "Eraser.h"
 //nclude "Document.h"
 
 // CAG_PainterDlg dialog
@@ -50,6 +51,7 @@ public:
 	ShapesGarage *myShapeGarage;
 	Drawer *myDrawer;
 	selector *mySelector;
+	Eraser *myEraser;
 	ENUM_SHAPES myShapeType;
 	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 	afx_msg void OnToolsSelect();
@@ -58,4 +60,5 @@ public:
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnToolsMove();
 	Mover *myMover;
+	afx_msg void OnToolsEraser();
 };

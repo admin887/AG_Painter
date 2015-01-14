@@ -7,6 +7,7 @@
 #include "Elipse.h"
 #include "Line.h"
 #include "Document.h"
+#include "Eraser.h"
 #pragma once
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,6 +40,7 @@ ON_WM_LBUTTONDBLCLK()
 ON_COMMAND(ID_TOOLS_SELECT, &CAG_PainterDlg::OnToolsSelect)
 ON_WM_RBUTTONDOWN()
 ON_COMMAND(ID_TOOLS_MOVE, &CAG_PainterDlg::OnToolsMove)
+ON_COMMAND(ID_TOOLS_ERASER, &CAG_PainterDlg::OnToolsEraser)
 END_MESSAGE_MAP()
 
 
@@ -58,7 +60,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	myDrawer = new Drawer(*myShapeGarage);
 	mySelector= new selector(*myShapeGarage);
 	myMover= new Mover(*myShapeGarage);
-
+	myEraser= new Eraser(*myShapeGarage);
 	thisDoc.setShapeGarade(*myShapeGarage);
 	thisDoc.setCurrTool(*myDrawer);
 
@@ -261,4 +263,11 @@ void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 		i =myShapeGarage->getAliveShapes()->begin();
 		Shape* temp=  i._Mynode()->_Myval;
 		thisDoc.setCurrentShape(*temp);
+}
+
+
+void CAG_PainterDlg::OnToolsEraser()
+{
+	myShapeType = E_NULLSHAPE;
+	thisDoc.setCurrTool(*myEraser);
 }
