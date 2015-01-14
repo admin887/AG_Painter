@@ -44,22 +44,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
-	int maxX=0;
-	int minX=0;
-	int maxY=0;
-	int minY=0;
-
-	maxX= max(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
-	minX= min(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
-	maxY= max( getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
-	minY=  min(getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
-
-	getSelectedShape()->setEndX(maxX);
-	getSelectedShape()->setEndY(maxY);
-	getSelectedShape()->setStartX(minX);
-	getSelectedShape()->setStartY(minY);
-
-
 	m_isPressed=false;
 }
 void Drawer::DoubleClick(CDC *dc,CPoint newPoint)

@@ -26,14 +26,43 @@ Shape* selector::tryToSelect(CPoint p)
 	Shape* FoundedShape= new NullShape();
 	bool found=false;
 
+	int maxX=0;
+	int minX=0;
+	int maxY=0;
+	int minY=0;
+
+	maxX= max(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
+	minX= min(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
+	maxY= max( getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
+	minY=  min(getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
+
+
+
+
 
 	for (i =getShapeGarage()->getAliveShapes()->begin() ; i!=getShapeGarage()->getAliveShapes()->end() ; i++)
 	{
-		if((p.x<i._Mynode()->_Myval->getEndX())&&
-		   (p.y<i._Mynode()->_Myval->getEndY())
+			maxX=0;
+			minX=0;
+			maxY=0;
+			minY=0;
+
+			maxX= max(i._Mynode()->_Myval->getStartX(),i._Mynode()->_Myval->getEndX());
+			minX= min(i._Mynode()->_Myval->getStartX(),i._Mynode()->_Myval->getEndX());
+			maxY= max( i._Mynode()->_Myval->getStartY(),i._Mynode()->_Myval->getEndY());
+			minY=  min(i._Mynode()->_Myval->getStartY(),i._Mynode()->_Myval->getEndY());
+
+
+
+
+
+
+
+		if((p.x<maxX)&&
+		   (p.y<maxY)
 			&&
-			((p.x>i._Mynode()->_Myval->getStartX())&&
-		(p.y>i._Mynode()->_Myval->getStartY())) && !found)
+			((p.x>minX)&&
+		(p.y>minY) && !found))
 		{
 			i._Mynode()->_Myval->setIsSelected(true);
 			delete(FoundedShape);
