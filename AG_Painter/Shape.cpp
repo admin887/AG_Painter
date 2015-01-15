@@ -44,7 +44,10 @@
 	}
 	void Shape::setStartX(int newStartX)
 	{
-		m_startX= newStartX;
+		if(newStartX<128)
+			newStartX=128;
+		else
+			m_startX= newStartX;
 	}
 	int Shape::getStartY()
 	{
