@@ -10,6 +10,7 @@ class ShapesGarage
 		list<Shape*> *m_alive;
 		list<Shape*> *m_retired;
 		ShapesFactory *m_factory;
+		int m_currWeight;
 		ENUM_SHAPES m_Type;
 		COLORREF m_currFill;
 		COLORREF m_currLine;
@@ -29,6 +30,9 @@ class ShapesGarage
 		COLORREF getcurrLine();
 		void setCurFill(COLORREF newCurFill);
 		void setCurrLine(COLORREF newCurrLine);
+
+		int getCurrWeight();
+		void setCurrWeight(int newWight);
 
 
 };

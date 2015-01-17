@@ -23,6 +23,7 @@ CAG_PainterDlg::CAG_PainterDlg(CWnd* pParent /*=NULL*/)
 void CAG_PainterDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_SLIDER1, TrackBar);
 }
 
 BEGIN_MESSAGE_MAP(CAG_PainterDlg, CDialogEx)
@@ -67,6 +68,12 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	myUndoRedo= new UndoRedo(*myShapeGarage);
 	thisDoc.setShapeGarade(*myShapeGarage);
 	thisDoc.setCurrTool(*myDrawer);
+
+	TrackBar.SetRangeMin(1);
+	TrackBar.SetRangeMax(10);
+	/* TrackBar->SetRangeMin(0);
+    TrackBar->SetRangeMax(50);
+*/
 
 	return TRUE;
 }
@@ -233,6 +240,7 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		thisDoc.getShapeGarade()->setCurFill(curFill);
 		thisDoc.getShapeGarade()->setCurrLine(curLine);
+		thisDoc.getShapeGarade()->setCurrWeight(TrackBar.GetPos());
 
 		thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
 		thisDoc.getCurrTool().MouseDown(&dc,point);

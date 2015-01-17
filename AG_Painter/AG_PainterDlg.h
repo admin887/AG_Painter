@@ -11,6 +11,7 @@
 #include "Eraser.h"
 //nclude "Document.h"
 #include "Undoredo.h"
+#include "afxcmn.h"
 // CAG_PainterDlg dialog
 class CAG_PainterDlg : public CDialogEx
 {
@@ -64,4 +65,5 @@ public:
 	afx_msg void OnEditUndo32773();
 	UndoRedo *myUndoRedo;
 	afx_msg void OnEditReundo();
+	CSliderCtrl TrackBar;
 };

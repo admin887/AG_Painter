@@ -42,6 +42,7 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 
 		myshape->setColorInside(getShapeGarage()->getCurrFill());
 		myshape->setColorOutside(getShapeGarage()->getcurrLine());
+		myshape->setWeight(getShapeGarage()->getCurrWeight());
 
 		
 
@@ -91,6 +92,7 @@ void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 			myshape->setStartY(newPoint.y);
 			myshape->setColorInside(getShapeGarage()->getCurrFill());
 			myshape->setColorOutside(getShapeGarage()->getcurrLine());
+			myshape->setWeight(getShapeGarage()->getCurrWeight());
 			myshape->Paint(dc);
 	}
 	else

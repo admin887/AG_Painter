@@ -84,3 +84,12 @@ void ShapesGarage::setCurrLine(COLORREF newCurrLine)
 	{
 		m_currLine= newCurrLine;
 	}
+
+int ShapesGarage::getCurrWeight()
+{
+	return m_currWeight;
+}
+void ShapesGarage::setCurrWeight(int newWight)
+{
+	m_currWeight= newWight;
+}
