@@ -71,10 +71,6 @@ BOOL CAG_PainterDlg::OnInitDialog()
 
 	TrackBar.SetRangeMin(2);
 	TrackBar.SetRangeMax(10);
-	/* TrackBar->SetRangeMin(0);
-    TrackBar->SetRangeMax(50);
-*/
-
 	return TRUE;
 }
 void CAG_PainterDlg::OnSysCommand(UINT nID, LPARAM lParam)
