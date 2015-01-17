@@ -128,6 +128,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tool.h" />
     <ClInclude Include="ToolNull.h" />
+    <ClInclude Include="Undoredo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AG_Painter.cpp" />
@@ -154,6 +155,7 @@
     </ClCompile>
     <ClCompile Include="Tool.cpp" />
     <ClCompile Include="ToolNull.cpp" />
+    <ClCompile Include="UndoRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AG_Painter.rc" />

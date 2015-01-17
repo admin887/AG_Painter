@@ -126,6 +126,9 @@
     <ClInclude Include="ToolNull.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Undoredo.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AG_Painter.cpp">
@@ -189,6 +192,9 @@
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="ToolNull.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoRedo.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
   </ItemGroup>

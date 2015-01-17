@@ -45,6 +45,7 @@ void Mover::MouseDown(CDC *dc,CPoint newPoint)
 		setIsSelected(true);
 		getMfoundShape()->Paint(dc);
 		setIsSelected(true);
+
 }
 void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {

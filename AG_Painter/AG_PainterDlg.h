@@ -10,7 +10,7 @@
 #include "Mover.h"
 #include "Eraser.h"
 //nclude "Document.h"
-
+#include "Undoredo.h"
 // CAG_PainterDlg dialog
 class CAG_PainterDlg : public CDialogEx
 {
@@ -61,4 +61,7 @@ public:
 	afx_msg void OnToolsMove();
 	Mover *myMover;
 	afx_msg void OnToolsEraser();
+	afx_msg void OnEditUndo32773();
+	UndoRedo *myUndoRedo;
+	afx_msg void OnEditReundo();
 };

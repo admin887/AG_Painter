@@ -43,6 +43,20 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 		myshape->setColorInside(getShapeGarage()->getCurrFill());
 		myshape->setColorOutside(getShapeGarage()->getcurrLine());
 
+		
+
+
+
+	std::list<Shape*>::iterator i;
+	Shape *s;
+	
+	if(getShapeGarage()->getRetiredShapes()->size()==0)
+	{
+		return;
+	}
+
+	getShapeGarage()->getRetiredShapes()->clear();
+
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {

@@ -6,7 +6,7 @@
 ShapesGarage::ShapesGarage()
 {
 	m_alive=new list<Shape*>();
-	//m_retired=new list<Shape>();
+	m_retired=new list<Shape*>();
 	//*m_factory= *newFactory;
 	m_factory=nullptr;
 }

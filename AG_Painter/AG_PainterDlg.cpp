@@ -8,6 +8,7 @@
 #include "Line.h"
 #include "Document.h"
 #include "Eraser.h"
+#include "Undoredo.h"
 #pragma once
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,6 +42,8 @@ ON_COMMAND(ID_TOOLS_SELECT, &CAG_PainterDlg::OnToolsSelect)
 ON_WM_RBUTTONDOWN()
 ON_COMMAND(ID_TOOLS_MOVE, &CAG_PainterDlg::OnToolsMove)
 ON_COMMAND(ID_TOOLS_ERASER, &CAG_PainterDlg::OnToolsEraser)
+ON_COMMAND(ID_EDIT_UNDO32773, &CAG_PainterDlg::OnEditUndo32773)
+ON_COMMAND(ID_EDIT_REUNDO, &CAG_PainterDlg::OnEditReundo)
 END_MESSAGE_MAP()
 
 
@@ -61,6 +64,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	mySelector= new selector(*myShapeGarage);
 	myMover= new Mover(*myShapeGarage);
 	myEraser= new Eraser(*myShapeGarage);
+	myUndoRedo= new UndoRedo(*myShapeGarage);
 	thisDoc.setShapeGarade(*myShapeGarage);
 	thisDoc.setCurrTool(*myDrawer);
 
@@ -174,10 +178,14 @@ void CAG_PainterDlg::OnPaint()
 
 	std::list<Shape*>::iterator i;
 
-	for (i =myShapeGarage->getAliveShapes()->begin() ; i!=myShapeGarage->getAliveShapes()->end() ; i++)
-	{
-		i._Mynode()->_Myval->Paint(&dc);
-	}
+		for (i =myShapeGarage->getAliveShapes()->begin() ; i!=myShapeGarage->getAliveShapes()->end() ; i++)
+		{
+			i._Mynode()->_Myval->Paint(&dc);
+		}
+	
+
+
+
 }
 
 void CAG_PainterDlg::OnToolsSelect()
@@ -270,4 +278,18 @@ void CAG_PainterDlg::OnToolsEraser()
 {
 	myShapeType = E_NULLSHAPE;
 	thisDoc.setCurrTool(*myEraser);
+}
+
+
+void CAG_PainterDlg::OnEditUndo32773()
+{
+	myUndoRedo->Undo();
+	Invalidate();
+}
+
+
+void CAG_PainterDlg::OnEditReundo()
+{
+	myUndoRedo->Redo();
+	Invalidate();
 }
