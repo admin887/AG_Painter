@@ -69,7 +69,7 @@ BOOL CAG_PainterDlg::OnInitDialog()
 	thisDoc.setShapeGarade(*myShapeGarage);
 	thisDoc.setCurrTool(*myDrawer);
 
-	TrackBar.SetRangeMin(1);
+	TrackBar.SetRangeMin(2);
 	TrackBar.SetRangeMax(10);
 	/* TrackBar->SetRangeMin(0);
     TrackBar->SetRangeMax(50);
