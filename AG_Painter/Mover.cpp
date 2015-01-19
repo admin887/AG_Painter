@@ -58,21 +58,50 @@ void Mover::DoubleClick(CDC *dc,CPoint newPoint)
 }
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
-
 	if(getIsSelected())
 	{
+		int maxX=0;
+		int minX=0;
+		int maxY=0;
+		int minY=0;
+
+		maxX= max(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
+		minX= min(getSelectedShape()->getStartX(),getSelectedShape()->getEndX());
+		maxY= max( getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
+		minY=  min(getSelectedShape()->getStartY(),getSelectedShape()->getEndY());
 		int deltaX= (newPoint.x- getFpoint()->x);
 		int deltaY= (newPoint.y- getFpoint()->y);
-
+		
 		getMfoundShape()->setIsSelected(false);
 
 		getMfoundShape()->Paint(dc);
-
-		getMfoundShape()->setStartX(getMfoundShape()->getStartX()+deltaX);
-		getMfoundShape()->setStartY(getMfoundShape()->getStartY()+deltaY);
-
-		getMfoundShape()->setEndX(getMfoundShape()->getEndX()+deltaX);
-		getMfoundShape()->setEndY(getMfoundShape()->getEndY()+deltaY);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		if((minX<135 && deltaX<0) || (maxX>755 && deltaX>0))
+		{
+			
+		}
+		else
+		{
+			getMfoundShape()->setStartX(getMfoundShape()->getStartX()+deltaX);
+			getMfoundShape()->setEndX(getMfoundShape()->getEndX()+deltaX);
+		}
+		if((minY<10 && deltaY<0) || (maxY>405 && deltaY>0))
+		{
+			
+		}
+		else
+		{
+			getMfoundShape()->setStartY(getMfoundShape()->getStartY()+deltaY);
+			getMfoundShape()->setEndY(getMfoundShape()->getEndY()+deltaY);
+		}
 
 		getMfoundShape()->Paint(dc);
 

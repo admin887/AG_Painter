@@ -175,10 +175,15 @@ void CAG_PainterDlg::OnPaint()
 			
 
 			dc.Rectangle(15,370,120,370+20);
-		
+			
 			dc.SelectObject( oldPen ); 
 			dc.SetROP2(R2_COPYPEN);  
 			dc.SelectObject( oldBrush2 );
+
+			CBrush myBrush3,*oldBrush3;
+			myBrush3.CreateSolidBrush(RGB(255,250,250));
+			oldBrush3=dc.SelectObject(&myBrush3);
+			dc.Rectangle(130,5,760,410);
 
 	int ListSize= myShapeGarage->getAliveShapes()->_Mysize;
 

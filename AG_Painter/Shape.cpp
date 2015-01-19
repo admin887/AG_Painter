@@ -46,9 +46,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setStartX(int newStartX)
 	{
-		if(newStartX<128)
-			newStartX=128;
-		else
+		if(newStartX>130)
 			m_startX= newStartX;
 	}
 	int Shape::getStartY()
@@ -57,7 +55,8 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setStartY(int newStartY)
 	{
-		m_startY= newStartY;
+		if(newStartY>5)
+			m_startY= newStartY;
 	}
 	
 	int Shape::getEndX()
@@ -66,7 +65,8 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setEndX(int newEndX)
 	{
-		m_endX= newEndX;
+		if(newEndX<760)
+			m_endX= newEndX;
 	}
 	int Shape::getEndY()
 	{
@@ -74,7 +74,8 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setEndY(int newEndY)
 	{
-		m_endY= newEndY;
+		if(newEndY<410)
+			m_endY= newEndY;
 	}
 	void Shape::Serialize (CArchive& ar)
 	{
