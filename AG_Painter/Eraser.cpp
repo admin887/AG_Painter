@@ -53,13 +53,11 @@ void Eraser::MouseDown(CDC *dc,CPoint newPoint)
 		m_FoundedShape->setWeight(0);
 		m_FoundedShape->setColorInside(0);
 		m_FoundedShape->setColorOutside(0);
-
-
 }
 void Eraser::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 	setIsSelected(false);
-		m_FoundedShape->setIsSelected(false);
+	m_FoundedShape->setIsSelected(false);
 }
 void Eraser::DoubleClick(CDC *dc,CPoint newPoint)
 {

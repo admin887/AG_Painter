@@ -46,7 +46,6 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setStartX(int newStartX)
 	{
-		if(newStartX>130)
 			m_startX= newStartX;
 	}
 	int Shape::getStartY()
@@ -55,7 +54,6 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	}
 	void Shape::setStartY(int newStartY)
 	{
-		if(newStartY>5)
 			m_startY= newStartY;
 	}
 	
