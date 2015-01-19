@@ -45,12 +45,21 @@ void Eraser::MouseDown(CDC *dc,CPoint newPoint)
 		setIsSelected(true);
 		getMfoundShape()->Paint(dc);
 		setIsSelected(true);
-		delete m_FoundedShape;
-		m_FoundedShape= new NullShape();
+
+		m_FoundedShape->setStartX(0);
+		m_FoundedShape->setStartY(0);
+		m_FoundedShape->setEndX(0);
+		m_FoundedShape->setEndY(0);
+		m_FoundedShape->setWeight(0);
+		m_FoundedShape->setColorInside(0);
+		m_FoundedShape->setColorOutside(0);
+
+
 }
 void Eraser::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 	setIsSelected(false);
+		m_FoundedShape->setIsSelected(false);
 }
 void Eraser::DoubleClick(CDC *dc,CPoint newPoint)
 {

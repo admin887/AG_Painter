@@ -19,8 +19,6 @@ Drawer &Drawer::operator=(Drawer newDrawer)
 Drawer::Drawer(Drawer &d)
 {
 	this->setSelectedShape(d.getSelectedShape());
-	//this->setShapeGarage(d.getShapeGarage());
-
 }
 Drawer::~Drawer(void)
 {
@@ -56,7 +54,7 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 		return;
 	}
 
-	getShapeGarage()->getRetiredShapes()->clear();
+	getShapeGarage()->DeleteRetired();
 
 }
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver

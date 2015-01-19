@@ -193,8 +193,6 @@ void CAG_PainterDlg::OnPaint()
 		{
 			i._Mynode()->_Myval->Paint(&dc);
 		}
-	
-
 
 
 }
@@ -335,8 +333,7 @@ void CAG_PainterDlg::OnFileSavenow()
 
 void CAG_PainterDlg::OnFileOpen32771()
 {
-	thisDoc.getShapeGarade()->getAliveShapes()->clear();
-
+	thisDoc.getShapeGarade()->DeleteAlive();
 
 	CTypedPtrArray< CObArray, Shape*> myTempArray;
 	std::list<Shape*>::iterator i;
@@ -353,6 +350,4 @@ void CAG_PainterDlg::OnFileOpen32771()
 		thisDoc.getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
 	}
 	Invalidate();
-
-
 }

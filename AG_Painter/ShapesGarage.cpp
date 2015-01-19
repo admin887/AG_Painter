@@ -93,3 +93,27 @@ void ShapesGarage::setCurrWeight(int newWight)
 {
 	m_currWeight= newWight;
 }
+
+void  ShapesGarage::DeleteAlive()
+{
+	std::list<Shape*>::iterator i;
+
+	//for (i =getAliveShapes()->begin() ; i!=getAliveShapes()->end() ; i++)
+	//	{
+	//		delete	i._Mynode()->_Myval;
+	//	}
+
+	getAliveShapes()->clear();
+}
+void  ShapesGarage::DeleteRetired()
+{
+		/*std::list<Shape*>::iterator i;
+
+		for (i =getRetiredShapes()->begin() ; i!=getRetiredShapes()->end() ; i++)
+		{
+			delete	i._Mynode()->_Myval;
+		}*/
+	
+		getRetiredShapes()->clear();
+
+}

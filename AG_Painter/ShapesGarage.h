@@ -34,5 +34,9 @@ class ShapesGarage
 		int getCurrWeight();
 		void setCurrWeight(int newWight);
 
+		void DeleteAlive();
+		void DeleteRetired();
+
+
 
 };
