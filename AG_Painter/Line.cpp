@@ -2,7 +2,7 @@
 #include "Line.h"
 #pragma once
 //#include <iostream>
-
+IMPLEMENT_SERIAL (Line, CObject, 1)
 Line::Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor)
 {
 

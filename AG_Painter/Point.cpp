@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Point.h"
 #pragma once
-
+IMPLEMENT_SERIAL (Point, CObject, 1)
 Point::Point(int newX,int newY,int newWeight,COLORREF newColor)
 {
 	setStartX(newX);

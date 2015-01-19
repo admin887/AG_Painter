@@ -4,8 +4,10 @@
 #include "IWeightable.h"
 #pragma once;
 
-class Shape : public ISelectable, public IColorable, public IWeightable
+class Shape : public ISelectable, public IColorable, public IWeightable, public CObject
 {
+	DECLARE_SERIAL (Shape)
+
 private:
 	int m_startX;
 	int m_startY;
@@ -13,7 +15,9 @@ private:
 	int m_endY;
 
 public:
-	virtual void Paint(CDC *dc)=0 ;
+	Shape() {};
+	void Serialize (CArchive& ar);
+	virtual void Paint(CDC *dc){} ;
 	bool getIsSelected();
 	void setIsSelected(bool) ;
 	COLORREF getColorInside();

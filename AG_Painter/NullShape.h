@@ -5,6 +5,7 @@
 #pragma once
 class NullShape:public Shape
 {
+	DECLARE_SERIAL (NullShape)
 	public:
 		NullShape();
 		NullShape(NullShape &);

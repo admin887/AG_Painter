@@ -5,6 +5,7 @@
 #pragma once
 class Rec:public Shape
 {
+	DECLARE_SERIAL (Rec)
 	public:
 		Rec(Point newP1, Point newP2,int newWeight=1, COLORREF=0, COLORREF=0);
 		Rec(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor

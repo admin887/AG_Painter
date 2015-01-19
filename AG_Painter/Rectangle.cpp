@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Rectangle.h"
 #pragma once
-
+IMPLEMENT_SERIAL (Rec, CObject, 1)
 Rec::Rec(Point newP1, Point newP2,int newWeight, COLORREF newInsideColor, COLORREF newOutsideColor)
 {
 	setStartX(newP1.getStartX());

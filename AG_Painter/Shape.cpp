@@ -2,6 +2,8 @@
 #include "Shape.h"
 #pragma once
 
+IMPLEMENT_SERIAL (Shape, CObject, 1)
+
 	bool Shape::getIsSelected()
 	{
 		return m_isSelected;
@@ -73,4 +75,30 @@
 	void Shape::setEndY(int newEndY)
 	{
 		m_endY= newEndY;
+	}
+	void Shape::Serialize (CArchive& ar)
+	{
+		CObject::Serialize (ar);
+		if (ar.IsStoring ())
+		{
+			ar << m_startX;
+			ar << m_endX;
+			ar << m_startY;
+			ar << m_endY;
+			ar << m_inSideColor;
+			ar << m_OutsideColor;
+			ar << m_weight;
+			//!!7 //ar << KIND;
+		}
+		else // Loading, not storing
+		{
+			ar >> m_startX;
+			ar >> m_endX;
+			ar >> m_startY;
+			ar >> m_endY;
+			ar >> m_inSideColor;
+			ar >> m_OutsideColor;
+			ar >> m_weight;
+			//!!7 //ar >> KIND;
+		}
 	}

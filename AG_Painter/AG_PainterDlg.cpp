@@ -45,6 +45,9 @@ ON_COMMAND(ID_TOOLS_MOVE, &CAG_PainterDlg::OnToolsMove)
 ON_COMMAND(ID_TOOLS_ERASER, &CAG_PainterDlg::OnToolsEraser)
 ON_COMMAND(ID_EDIT_UNDO32773, &CAG_PainterDlg::OnEditUndo32773)
 ON_COMMAND(ID_EDIT_REUNDO, &CAG_PainterDlg::OnEditReundo)
+//ON_COMMAND(ID_FILE_SAVE32791, &CAG_PainterDlg::OnFileSave32791)
+ON_COMMAND(ID_FILE_SAVENOW, &CAG_PainterDlg::OnFileSavenow)
+ON_COMMAND(ID_FILE_OPEN32771, &CAG_PainterDlg::OnFileOpen32771)
 END_MESSAGE_MAP()
 
 
@@ -296,4 +299,55 @@ void CAG_PainterDlg::OnEditReundo()
 {
 	myUndoRedo->Redo();
 	Invalidate();
+}
+
+
+void CAG_PainterDlg::OnFileSavenow()
+{
+	CTypedPtrArray< CObArray, Shape*> myTempArray;
+	std::list<Shape*>::iterator i;
+
+	for (i =myShapeGarage->getAliveShapes()->begin() ; i!=myShapeGarage->getAliveShapes()->end() ; i++)
+		{
+			myTempArray.Add(i._Mynode()->_Myval);
+		}
+
+	CFile file(_T("File.$$"), CFile::modeCreate);
+	file.Close();
+	CFile samefile(_T("File.$$"), CFile::modeWrite);
+	CArchive ar (&samefile, CArchive::store);
+	myTempArray.Serialize(ar);
+	ar.Close();
+	
+	samefile.Close();
+
+
+	
+
+
+}
+
+
+void CAG_PainterDlg::OnFileOpen32771()
+{
+	thisDoc.getShapeGarade()->getAliveShapes()->clear();
+
+
+	CTypedPtrArray< CObArray, Shape*> myTempArray;
+	std::list<Shape*>::iterator i;
+
+	CFile samefile(_T("File.$$"), CFile::modeRead);
+	CArchive ar (&samefile, CArchive::load);
+	myTempArray.Serialize(ar);
+	ar.Close();
+	
+	samefile.Close();
+
+	for (int i = 0; i < myTempArray.GetSize(); i++)
+	{
+		thisDoc.getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
+	}
+	Invalidate();
+
+
 }

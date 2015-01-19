@@ -66,4 +66,7 @@ public:
 	UndoRedo *myUndoRedo;
 	afx_msg void OnEditReundo();
 	CSliderCtrl TrackBar;
+	afx_msg void OnFileSave32791();
+	afx_msg void OnFileSavenow();
+	afx_msg void OnFileOpen32771();
 };

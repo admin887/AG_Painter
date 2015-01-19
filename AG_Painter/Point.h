@@ -5,6 +5,7 @@
 #pragma once
 class Point:public Shape
 {
+	DECLARE_SERIAL (Point)
 	public:
 		Point(int=0,int=0,int=4,COLORREF=0);//default constructor
 		Point(Point &);//copy constructor

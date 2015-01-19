@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "NullShape.h"
 #pragma once
-
+IMPLEMENT_SERIAL (NullShape, CObject, 1)
 NullShape::NullShape()
 {
 	setStartX(0);

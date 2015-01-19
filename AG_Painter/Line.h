@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "Point.h"
 #pragma once
+	
 class Line:public Shape
 {
+	DECLARE_SERIAL (Line)
 private:
 public:
 	Line(Point newStart, Point newEnd, int newWeight, COLORREF newColor);
