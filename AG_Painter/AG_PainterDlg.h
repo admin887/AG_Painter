@@ -69,4 +69,6 @@ public:
 	afx_msg void OnFileSave32791();
 	afx_msg void OnFileSavenow();
 	afx_msg void OnFileOpen32771();
+	afx_msg void OnFileNewdoc();
+	afx_msg void OnAboutAbout();
 };

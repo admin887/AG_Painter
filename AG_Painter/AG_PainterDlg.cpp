@@ -48,6 +48,8 @@ ON_COMMAND(ID_EDIT_REUNDO, &CAG_PainterDlg::OnEditReundo)
 //ON_COMMAND(ID_FILE_SAVE32791, &CAG_PainterDlg::OnFileSave32791)
 ON_COMMAND(ID_FILE_SAVENOW, &CAG_PainterDlg::OnFileSavenow)
 ON_COMMAND(ID_FILE_OPEN32771, &CAG_PainterDlg::OnFileOpen32771)
+ON_COMMAND(ID_FILE_NEWDOC, &CAG_PainterDlg::OnFileNewdoc)
+ON_COMMAND(ID_ABOUT_ABOUT, &CAG_PainterDlg::OnAboutAbout)
 END_MESSAGE_MAP()
 
 
@@ -339,6 +341,38 @@ void CAG_PainterDlg::OnFileOpen32771()
 	std::list<Shape*>::iterator i;
 
 	CFile samefile(_T("File.$$"), CFile::modeRead);
+	CArchive ar (&samefile, CArchive::load);
+	myTempArray.Serialize(ar);
+	ar.Close();
+	
+	samefile.Close();
+
+	for (int i = 0; i < myTempArray.GetSize(); i++)
+	{
+		thisDoc.getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
+	}
+	Invalidate();
+}
+
+
+void CAG_PainterDlg::OnFileNewdoc()
+{
+	thisDoc.getShapeGarade()->DeleteAlive();
+	thisDoc.getShapeGarade()->DeleteRetired();
+	Invalidate();
+
+
+}
+
+
+void CAG_PainterDlg::OnAboutAbout()
+{
+	thisDoc.getShapeGarade()->DeleteAlive();
+
+	CTypedPtrArray< CObArray, Shape*> myTempArray;
+	std::list<Shape*>::iterator i;
+
+	CFile samefile(_T("about.$$"), CFile::modeRead);
 	CArchive ar (&samefile, CArchive::load);
 	myTempArray.Serialize(ar);
 	ar.Close();
