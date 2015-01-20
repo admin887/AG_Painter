@@ -10,7 +10,7 @@ class NullShape:public Shape
 		NullShape();
 		NullShape(NullShape &);
 		NullShape &operator=( NullShape &);
-		~NullShape();//destructor
+		virtual ~NullShape();//destructor
 		void Paint(CDC *dc);
 
 };

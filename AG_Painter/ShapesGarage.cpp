@@ -2,12 +2,10 @@
 #include "ShapesGarage.h"
 #include "ShapesFactory.h"
 #pragma once
-//ShapesGarage::ShapesGarage(list<Shape*>* newalive,list<Shape*>* newretired, ShapesFactory *newFactory)
 ShapesGarage::ShapesGarage()
 {
 	m_alive=new list<Shape*>();
 	m_retired=new list<Shape*>();
-	//*m_factory= *newFactory;
 	m_factory=nullptr;
 }
 ShapesGarage::ShapesGarage(ShapesGarage &s)
@@ -28,36 +26,9 @@ list<Shape*>* ShapesGarage::getRetiredShapes()
 }
 Shape* ShapesGarage::CreateShape(ENUM_SHAPES s)
 {
-	//m_factory = ShapesFactory::getInstance();
-
-	//Elipse *myeli= new Elipse();
-
-	
-
-	//m_alive=  new std::list<Shape*>();
-
 	Shape *myshape= m_factory->CreateShape(s);
-
 	m_alive->push_front(myshape);
-	//m_alive->push_back(myshape);
 	return myshape;
-	//m_alive=  new std::list<Shape*>();
-
-	//m_alive->push_front(myeli);
-
-
-
-
-
-
-	//Elipse *e= new Elipse();
-	//std::list<Shape*> *ssss= new std::list<Shape*>();
-
-	//
-	//ssss->push_front(e);
-
-	
-
 }
 ENUM_SHAPES ShapesGarage::getTypeToConstract()
 {
@@ -96,24 +67,25 @@ void ShapesGarage::setCurrWeight(int newWight)
 
 void  ShapesGarage::DeleteAlive()
 {
-	std::list<Shape*>::iterator i;
+	Shape *s;
+	int size= getAliveShapes()->size();
 
-	//for (i =getAliveShapes()->begin() ; i!=getAliveShapes()->end() ; i++)
-	//	{
-	//		delete	i._Mynode()->_Myval;
-	//	}
-
-	getAliveShapes()->clear();
+	for (int i = 0; i < size; i++)
+	{
+		s= getAliveShapes()->begin()._Mynode()->_Myval;
+		getAliveShapes()->remove(s);
+		delete s;
+	}
 }
 void  ShapesGarage::DeleteRetired()
 {
-		/*std::list<Shape*>::iterator i;
+		Shape *s;
+		int size= getRetiredShapes()->size();
 
-		for (i =getRetiredShapes()->begin() ; i!=getRetiredShapes()->end() ; i++)
+		for (int i = 0; i < size; i++)
 		{
-			delete	i._Mynode()->_Myval;
-		}*/
-	
-		getRetiredShapes()->clear();
-
+		s= getRetiredShapes()->begin()._Mynode()->_Myval;
+		getRetiredShapes()->remove(s);
+		delete s;
+		}
 }

@@ -12,7 +12,7 @@ class Elipse:public Shape
 		Elipse(Point newP1, Point newP2,int newWeight=1, COLORREF=0, COLORREF=0);
 		Elipse(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
 		Elipse(Elipse &);//copy constructor
-		~Elipse();//destructor
+		virtual ~Elipse();//destructor
 		Elipse &operator=( Elipse &);
 		void Paint(CDC *dc);
 };

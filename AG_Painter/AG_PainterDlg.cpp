@@ -9,6 +9,7 @@
 #include "Document.h"
 #include "Eraser.h"
 #include "Undoredo.h"
+#include "Utils.cpp"
 #pragma once
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,15 +65,15 @@ BOOL CAG_PainterDlg::OnInitDialog()
 
 	curFill= RGB(255,0,0);
 	curLine=RGB(0,255,0);
-
+	thisDoc= new Document();
 	myShapeGarage= new ShapesGarage();
 	myDrawer = new Drawer(*myShapeGarage);
 	mySelector= new selector(*myShapeGarage);
 	myMover= new Mover(*myShapeGarage);
 	myEraser= new Eraser(*myShapeGarage);
 	myUndoRedo= new UndoRedo(*myShapeGarage);
-	thisDoc.setShapeGarade(*myShapeGarage);
-	thisDoc.setCurrTool(*myDrawer);
+	thisDoc->setShapeGarade(*myShapeGarage);
+	thisDoc->setCurrTool(*myDrawer);
 
 	TrackBar.SetRangeMin(2);
 	TrackBar.SetRangeMax(10);
@@ -101,19 +102,19 @@ void CAG_PainterDlg::OnPaint()
 	CClientDC dc2(this);
 	CRect rect;
 
-	COLORREF myColors[]= {RGB(255,0,0),RGB(0,255,0),
-						  RGB(0,0,255),RGB(255,128,0),
-						  RGB(0,128,128),RGB(200,0,255),
-						  RGB(128,128,64),RGB(0,0,0)
+	COLORREF myColors[]= {COLOR1,COLOR2,
+						  COLOR3,COLOR4,
+						  COLOR5,COLOR6,
+						  COLOR7,COLOR8
 						 };
 	
     GetClientRect (&rect);
 
-	int startXX= 15;
-	int startYY=30;
-	int weight=50;
-	int deltaX= 5;
-	int deltaY= 5;
+	int startXX= MAIN_COLOR_FIRST_POS_X;
+	int startYY=MAIN_COLOR_FIRST_POS_Y;
+	int weight=MAIN_COLOR_LENGH;
+	int deltaX= MAIN_DELTA_X;
+	int deltaY= MAIN_DELTA_Y;
 
 	int Color_Counter=0;
 
@@ -143,7 +144,7 @@ void CAG_PainterDlg::OnPaint()
 			Color_Counter++;
 			
 		}
-		startXX =15;
+		startXX =MAIN_COLOR_FIRST_POS_X;
 		startYY= startYY+deltaY+weight;
 	}
 
@@ -185,7 +186,7 @@ void CAG_PainterDlg::OnPaint()
 			CBrush myBrush3,*oldBrush3;
 			myBrush3.CreateSolidBrush(RGB(255,250,250));
 			oldBrush3=dc.SelectObject(&myBrush3);
-			dc.Rectangle(130,5,760,410);
+			dc.Rectangle(MAIN_REC_START_X,MAIN_REC_START_Y,MAIN_REC_END_X,MAIN_REC_END_Y);
 
 	int ListSize= myShapeGarage->getAliveShapes()->_Mysize;
 
@@ -195,41 +196,39 @@ void CAG_PainterDlg::OnPaint()
 		{
 			i._Mynode()->_Myval->Paint(&dc);
 		}
-
-
 }
 
 void CAG_PainterDlg::OnToolsSelect()
 {
 	myShapeType = E_NULLSHAPE;
-	thisDoc.setCurrTool(*mySelector);
+	thisDoc->setCurrTool(*mySelector);
 		
 	
 }
 void CAG_PainterDlg::OnDrawPoints()
 {
 	myShapeType= E_POINT;
-	thisDoc.setCurrTool(*myDrawer);
+	thisDoc->setCurrTool(*myDrawer);
 }
 void CAG_PainterDlg::OnDrawLine()
 {
 	myShapeType= E_LINE;
-	thisDoc.setCurrTool(*myDrawer);
+	thisDoc->setCurrTool(*myDrawer);
 }
 void CAG_PainterDlg::OnDrawElipse()
 {
 	myShapeType= E_ELIPSE;
-	thisDoc.setCurrTool(*myDrawer);
+	thisDoc->setCurrTool(*myDrawer);
 }
 void CAG_PainterDlg::OnDrawRectangle()
 {
 	myShapeType= E_RECTANGLE;
-	thisDoc.setCurrTool(*myDrawer);
+	thisDoc->setCurrTool(*myDrawer);
 }
 void CAG_PainterDlg::OnToolsMove()
 {
 		myShapeType = E_NULLSHAPE;
-		thisDoc.setCurrTool(*myMover);
+		thisDoc->setCurrTool(*myMover);
 }
 
 void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
@@ -242,16 +241,16 @@ void CAG_PainterDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 	else
 	{
-		thisDoc.getShapeGarade()->setCurFill(curFill);
-		thisDoc.getShapeGarade()->setCurrLine(curLine);
-		thisDoc.getShapeGarade()->setCurrWeight(TrackBar.GetPos());
+		thisDoc->getShapeGarade()->setCurFill(curFill);
+		thisDoc->getShapeGarade()->setCurrLine(curLine);
+		thisDoc->getShapeGarade()->setCurrWeight(TrackBar.GetPos());
 
-		thisDoc.getShapeGarade()->setTypeToConstrct(myShapeType);
-		thisDoc.getCurrTool().MouseDown(&dc,point);
+		thisDoc->getShapeGarade()->setTypeToConstrct(myShapeType);
+		thisDoc->getCurrTool().MouseDown(&dc,point);
 		std::list<Shape*>::iterator i;
 		i =myShapeGarage->getAliveShapes()->begin();
 		Shape* temp=  i._Mynode()->_Myval;
-		thisDoc.setCurrentShape(*temp);
+		thisDoc->setCurrentShape(*temp);
 	}
 	
 }
@@ -271,25 +270,25 @@ void CAG_PainterDlg::OnLButtonDblClk(UINT nFlags, CPoint point)
 void CAG_PainterDlg::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	CClientDC dc(this);
-	thisDoc.getCurrTool().MouseUp(&dc,point);
+	thisDoc->getCurrTool().MouseUp(&dc,point);
 	Invalidate();
 }
 void CAG_PainterDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
 
 		CClientDC dc(this);
-		thisDoc.getCurrTool().MouseOver(&dc,point);
+		thisDoc->getCurrTool().MouseOver(&dc,point);
 		std::list<Shape*>::iterator i;
 		i =myShapeGarage->getAliveShapes()->begin();
 		Shape* temp=  i._Mynode()->_Myval;
-		thisDoc.setCurrentShape(*temp);
+		thisDoc->setCurrentShape(*temp);
 }
 
 
 void CAG_PainterDlg::OnToolsEraser()
 {
 	myShapeType = E_NULLSHAPE;
-	thisDoc.setCurrTool(*myEraser);
+	thisDoc->setCurrTool(*myEraser);
 }
 
 
@@ -325,17 +324,12 @@ void CAG_PainterDlg::OnFileSavenow()
 	ar.Close();
 	
 	samefile.Close();
-
-
-	
-
-
 }
 
 
 void CAG_PainterDlg::OnFileOpen32771()
 {
-	thisDoc.getShapeGarade()->DeleteAlive();
+	thisDoc->getShapeGarade()->DeleteAlive();
 
 	CTypedPtrArray< CObArray, Shape*> myTempArray;
 	std::list<Shape*>::iterator i;
@@ -349,7 +343,7 @@ void CAG_PainterDlg::OnFileOpen32771()
 
 	for (int i = 0; i < myTempArray.GetSize(); i++)
 	{
-		thisDoc.getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
+		thisDoc->getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
 	}
 	Invalidate();
 }
@@ -357,17 +351,21 @@ void CAG_PainterDlg::OnFileOpen32771()
 
 void CAG_PainterDlg::OnFileNewdoc()
 {
-	thisDoc.getShapeGarade()->DeleteAlive();
-	thisDoc.getShapeGarade()->DeleteRetired();
+	thisDoc->getShapeGarade()->DeleteAlive();
+	thisDoc->getShapeGarade()->DeleteRetired();
+
+	delete thisDoc;
+
+	thisDoc= new Document();
+	thisDoc->setShapeGarade(*myShapeGarage);
+	thisDoc->setCurrTool(*myDrawer);
 	Invalidate();
-
-
 }
 
 
 void CAG_PainterDlg::OnAboutAbout()
 {
-	thisDoc.getShapeGarade()->DeleteAlive();
+	thisDoc->getShapeGarade()->DeleteAlive();
 
 	CTypedPtrArray< CObArray, Shape*> myTempArray;
 	std::list<Shape*>::iterator i;
@@ -381,7 +379,7 @@ void CAG_PainterDlg::OnAboutAbout()
 
 	for (int i = 0; i < myTempArray.GetSize(); i++)
 	{
-		thisDoc.getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
+		thisDoc->getShapeGarade()->getAliveShapes()->push_front(myTempArray.ElementAt(i));
 	}
 	Invalidate();
 }

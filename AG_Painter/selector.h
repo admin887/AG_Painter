@@ -13,6 +13,5 @@ class selector: public Tool
 		Shape* tryToSelect(CPoint);
 		virtual void MouseDown(CDC *dc,CPoint);
 		virtual void MouseUp(CDC *dc,CPoint);
-		virtual void DoubleClick(CDC *dc,CPoint);
 		virtual void MouseOver(CDC *dc,CPoint);
 };

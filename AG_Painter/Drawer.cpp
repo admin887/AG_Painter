@@ -45,9 +45,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 		
 
 
-
-	std::list<Shape*>::iterator i;
-	Shape *s;
 	
 	if(getShapeGarage()->getRetiredShapes()->size()==0)
 	{
@@ -60,10 +57,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 void Drawer::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 	setIsSelected(false);
-}
-void Drawer::DoubleClick(CDC *dc,CPoint newPoint)
-{
-
 }
 void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 {

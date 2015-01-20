@@ -10,6 +10,7 @@ class Eraser: public selector
 		/*	bool isfirstClicked;*/		
 		Eraser(ShapesGarage &);
 		Eraser(Eraser &);
+		virtual ~Eraser() {};
 		Eraser &operator=( Eraser &);
 		Shape* getMfoundShape();
 		void setMfoundShape(Shape *);
@@ -17,7 +18,6 @@ class Eraser: public selector
 		void setFpoint(CPoint);
 		virtual void MouseDown(CDC *dc,CPoint);
 		virtual void MouseUp(CDC *dc,CPoint);
-		virtual void DoubleClick(CDC *dc,CPoint);
 		virtual void MouseOver(CDC *dc,CPoint);
 
 };

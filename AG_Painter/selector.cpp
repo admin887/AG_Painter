@@ -86,11 +86,6 @@ void selector::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 
 }
-void selector::DoubleClick(CDC *dc,CPoint newPoint)
-{
-	
-
-}
 void selector::MouseOver(CDC *dc,CPoint newPoint)
 {
 

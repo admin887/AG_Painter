@@ -17,7 +17,7 @@ class ShapesGarage
 	public:
 		ShapesGarage();
 		ShapesGarage(ShapesGarage &s);
-		~ShapesGarage(void);
+		virtual ~ShapesGarage(void);
 		//ShapesGarage &operator=(ShapesGarage &s);
 		list<Shape*>* getAliveShapes();
 		list<Shape*>* getRetiredShapes();

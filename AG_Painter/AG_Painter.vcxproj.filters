@@ -81,9 +81,6 @@
     <ClInclude Include="ISelectable.h">
       <Filter>Header Files\Abstract classes</Filter>
     </ClInclude>
-    <ClInclude Include="Deformer.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Drawer.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
@@ -94,9 +91,6 @@
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Resizer.h">
-      <Filter>Header Files\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotator.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="selector.h">
@@ -155,9 +149,6 @@
     <ClCompile Include="Shape.cpp">
       <Filter>Source Files\Shapes</Filter>
     </ClCompile>
-    <ClCompile Include="Deformer.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Drawer.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
@@ -168,9 +159,6 @@
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Resizer.cpp">
-      <Filter>Source Files\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotator.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
     <ClCompile Include="selector.cpp">
@@ -196,6 +184,9 @@
     </ClCompile>
     <ClCompile Include="UndoRedo.cpp">
       <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\General</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

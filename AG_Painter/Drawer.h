@@ -11,9 +11,8 @@ public:
 		Drawer(ShapesGarage &SG);
 		Drawer &operator=(Drawer);
 		Drawer(Drawer &d);
-		~Drawer(void);
+		virtual ~Drawer(void);
 		virtual void MouseDown(CDC *dc,CPoint);
 		virtual void MouseUp(CDC *dc,CPoint);
-		virtual void DoubleClick(CDC *dc,CPoint);
 		virtual void MouseOver(CDC *dc,CPoint);
 };

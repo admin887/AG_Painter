@@ -51,11 +51,6 @@ void Mover::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 	setIsSelected(false);
 }
-void Mover::DoubleClick(CDC *dc,CPoint newPoint)
-{
-	
-
-}
 void Mover::MouseOver(CDC *dc,CPoint newPoint)
 {
 	if(getIsSelected())

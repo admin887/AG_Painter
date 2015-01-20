@@ -42,7 +42,7 @@ public:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedMfccolorbutton1();
 	afx_msg void OnDrawElipse();
-	Document thisDoc;
+	Document *thisDoc;
 	afx_msg void OnDrawRectangle();
 	afx_msg void OnDrawLine();
 	afx_msg void OnDrawPoints();

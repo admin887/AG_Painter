@@ -33,10 +33,6 @@ void UndoRedo::MouseUp(CDC *dc,CPoint newPoint) // need to change to MouseOver
 {
 
 }
-void UndoRedo::DoubleClick(CDC *dc,CPoint newPoint)
-{
-
-}
 void UndoRedo::MouseOver(CDC *dc,CPoint newPoint)
 {
 

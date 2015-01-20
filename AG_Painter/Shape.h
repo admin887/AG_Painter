@@ -36,6 +36,6 @@ public:
 	void setEndX(int newEndX);
 	int getEndY();
 	void setEndY(int newEndY);
-
+	virtual ~Shape() {};
 };
 enum ENUM_SHAPES {E_NULLSHAPE,E_POINT, E_ELIPSE, E_RECTANGLE, E_LINE};

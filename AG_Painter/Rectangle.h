@@ -10,7 +10,7 @@ class Rec:public Shape
 		Rec(Point newP1, Point newP2,int newWeight=1, COLORREF=0, COLORREF=0);
 		Rec(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
 		Rec(Rec &);//copy constructor
-		~Rec();//destructor
+		virtual ~Rec();//destructor
 		Rec &operator=( Rec &);
 		void Paint(CDC *dc);
 
