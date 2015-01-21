@@ -59,15 +59,23 @@ void Mover::MouseOver(CDC *dc,CPoint newPoint)
 		int deltaX= (newPoint.x- getFpoint()->x);
 		int deltaY= (newPoint.y- getFpoint()->y);
 
-		getMfoundShape()->setIsSelected(false);
-
+		if(getMfoundShape()->getStartX()== getMfoundShape()->getEndX() && getMfoundShape()->getStartY()== getMfoundShape()->getEndY())
+		{
+			getMfoundShape()->setIsSelected(true);
+		}
+		else
+		{
+			getMfoundShape()->setIsSelected(false);
+		}
+		
 		getMfoundShape()->Paint(dc);
-
-		getMfoundShape()->setStartX(getMfoundShape()->getStartX()+deltaX);
-		getMfoundShape()->setStartY(getMfoundShape()->getStartY()+deltaY);
-
-		getMfoundShape()->setEndX(getMfoundShape()->getEndX()+deltaX);
-		getMfoundShape()->setEndY(getMfoundShape()->getEndY()+deltaY);
+	
+			getMfoundShape()->setStartX(getMfoundShape()->getStartX()+deltaX);
+			getMfoundShape()->setStartY(getMfoundShape()->getStartY()+deltaY);
+		
+			getMfoundShape()->setEndX(getMfoundShape()->getEndX()+deltaX);
+			getMfoundShape()->setEndY(getMfoundShape()->getEndY()+deltaY);
+		
 
 		getMfoundShape()->Paint(dc);
 

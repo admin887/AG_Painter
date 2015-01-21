@@ -5,7 +5,6 @@
 class Drawer: public Tool
 {
 private:
-		//bool m_isPressed;
 public:
 		Drawer();
 		Drawer(ShapesGarage &SG);

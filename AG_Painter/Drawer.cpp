@@ -69,11 +69,13 @@ void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 	{
 		getSelectedShape()->Paint(dc);
 	}
-	if((getSelectedShape()->getEndX()==-1) && (getSelectedShape()->getEndY()==-1)) //this is Point !!
+	if(((getSelectedShape()->getEndX()==getSelectedShape()->getStartX()) && (getSelectedShape()->getEndY()==getSelectedShape()->getStartY())) || ((getSelectedShape()->getEndX()==-1) && (getSelectedShape()->getEndY()==-1))) //this is Point !!
 	{
 		getSelectedShape()->Paint(dc);
 		getSelectedShape()->setStartX(newPoint.x);
 		getSelectedShape()->setStartY(newPoint.y);
+		getSelectedShape()->setEndX(newPoint.x);
+		getSelectedShape()->setEndY(newPoint.y);
 		getSelectedShape()->Paint(dc);
 
 		Shape *myshape=   getShapeGarage()->CreateShape(getShapeGarage()->getTypeToConstract());
@@ -81,6 +83,8 @@ void Drawer::MouseOver(CDC *dc,CPoint newPoint)
 				newPoint.x=128;	
 			myshape->setStartX(newPoint.x);
 			myshape->setStartY(newPoint.y);
+			myshape->setEndX(newPoint.x);
+			myshape->setEndY(newPoint.y);
 			myshape->setColorInside(getShapeGarage()->getCurrFill());
 			myshape->setColorOutside(getShapeGarage()->getcurrLine());
 			myshape->setWeight(getShapeGarage()->getCurrWeight());

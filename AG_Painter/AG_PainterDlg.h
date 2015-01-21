@@ -9,7 +9,6 @@
 #include "selector.h"
 #include "Mover.h"
 #include "Eraser.h"
-//nclude "Document.h"
 #include "Undoredo.h"
 #include "afxcmn.h"
 // CAG_PainterDlg dialog

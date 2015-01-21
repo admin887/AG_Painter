@@ -18,7 +18,6 @@ class ShapesGarage
 		ShapesGarage();
 		ShapesGarage(ShapesGarage &s);
 		virtual ~ShapesGarage(void);
-		//ShapesGarage &operator=(ShapesGarage &s);
 		list<Shape*>* getAliveShapes();
 		list<Shape*>* getRetiredShapes();
 		Shape* CreateShape(ENUM_SHAPES s);
