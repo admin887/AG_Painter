@@ -46,7 +46,7 @@ Rec::~Rec(void)
 	
 }
 
-Rec &Rec::operator=(Rec &r)
+Rec &Rec::operator=(const Rec &r)
 {
 	setStartX(r.getStartX());
 	setStartY(r.getStartY());

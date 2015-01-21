@@ -11,7 +11,7 @@ class Rec:public Shape
 		Rec(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
 		Rec(Rec &);//copy constructor
 		virtual ~Rec();//destructor
-		Rec &operator=( Rec &);
+		Rec &operator=(const Rec &);
 		void Paint(CDC *dc);
 
 };

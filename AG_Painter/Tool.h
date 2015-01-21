@@ -15,6 +15,6 @@ class Tool: public IAction, public ISelectable
 		void setSelectedShape(Shape *); 
 		ShapesGarage* getShapeGarage();
 		void setShapeGarage(ShapesGarage &newSG);
-		bool getIsSelected();
+		bool getIsSelected() const;
 		void setIsSelected(bool newIsSelected) ;
 };

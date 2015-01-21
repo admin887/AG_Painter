@@ -10,6 +10,6 @@ class Point:public Shape
 		Point(int=0,int=0,int=4,COLORREF=0);//default constructor
 		Point(Point &);//copy constructor
 		virtual ~Point();//destructor
-		const Point &operator=(Point &);
+		const Point &operator=(const Point &);
 		void Paint(CDC *dc);
 };

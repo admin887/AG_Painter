@@ -27,7 +27,7 @@ Point::Point(Point &p)
 Point::~Point()
 {
 }
-const Point &Point::operator=(Point &p)
+const Point &Point::operator=(const Point &p)
 {
 	if(&p!=this)
 	{

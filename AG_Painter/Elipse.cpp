@@ -46,7 +46,7 @@ Elipse::~Elipse(void)
 	
 }
 
-Elipse &Elipse::operator=(Elipse &r)
+Elipse &Elipse::operator=(const Elipse &r)
 {
 	setStartX(r.getStartX());
 	setStartY(r.getStartY());

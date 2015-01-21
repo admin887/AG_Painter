@@ -13,6 +13,6 @@ class Elipse:public Shape
 		Elipse(int=0,int=0,int=0,int=0,int newWeight=1,COLORREF=0, COLORREF=0);//default constructor
 		Elipse(Elipse &);//copy constructor
 		virtual ~Elipse();//destructor
-		Elipse &operator=( Elipse &);
+		Elipse &operator=(const Elipse &);
 		void Paint(CDC *dc);
 };

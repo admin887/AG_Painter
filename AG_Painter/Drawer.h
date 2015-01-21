@@ -8,7 +8,7 @@ private:
 public:
 		Drawer();
 		Drawer(ShapesGarage &SG);
-		Drawer &operator=(Drawer);
+		Drawer &operator=(const Drawer);
 		Drawer(Drawer &d);
 		virtual ~Drawer(void);
 		virtual void MouseDown(CDC *dc,CPoint);

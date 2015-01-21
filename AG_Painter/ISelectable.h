@@ -5,6 +5,6 @@ class ISelectable
 protected:
 	bool m_isSelected;
 public:
-	bool getIsSelected();
+	bool getIsSelected() const;
 	void setIsSelected(bool) ;
 };

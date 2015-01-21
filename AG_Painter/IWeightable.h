@@ -5,6 +5,6 @@ class IWeightable
 protected:
 	int m_weight;
 public:
-	int getWeight();
+	int getWeight() const;
 	void setWeight(int) ;
 };

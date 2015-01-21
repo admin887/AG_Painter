@@ -24,7 +24,7 @@ NullShape::NullShape(NullShape &newNullShape)
 	setColorOutside(newNullShape.getColorOutside());
 	setWeight(newNullShape.getWeight());
 }
-NullShape &NullShape::operator=(NullShape &newNullShape)
+NullShape &NullShape::operator=(const NullShape &newNullShape)
 {
 	setStartX(newNullShape.getStartX());
 	setStartY(newNullShape.getStartY());

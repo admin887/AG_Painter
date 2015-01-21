@@ -42,10 +42,6 @@ void Drawer::MouseDown(CDC *dc,CPoint newPoint)
 		myshape->setColorOutside(getShapeGarage()->getcurrLine());
 		myshape->setWeight(getShapeGarage()->getCurrWeight());
 
-		
-
-
-	
 	if(getShapeGarage()->getRetiredShapes()->size()==0)
 	{
 		return;

@@ -12,6 +12,6 @@ public:
 	Line(Line &l);
 	virtual ~Line(void);
 	
-	Line &operator=(Line &);
+	Line &operator=(const Line &);
 	void Paint(CDC *dc);
 };

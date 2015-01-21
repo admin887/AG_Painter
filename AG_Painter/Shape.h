@@ -18,23 +18,23 @@ public:
 	Shape() {};
 	void Serialize (CArchive& ar);
 	virtual void Paint(CDC *dc){} ;
-	bool getIsSelected();
+	bool getIsSelected() const;
 	void setIsSelected(bool) ;
-	COLORREF getColorInside();
-	COLORREF getColorOutside();
+	COLORREF getColorInside() const;
+	COLORREF getColorOutside() const;
 	void setColorInside(COLORREF);
 	void setColorOutside(COLORREF);
-	int getWeight();
+	int getWeight() const;
 	void setWeight(int);
 
-	int getStartX();
+	int getStartX() const;
 	void setStartX(int newStartX);
-	int getStartY();
+	int getStartY() const;
 	void setStartY(int newStartY);
 	
-	int getEndX();
+	int getEndX() const;
 	void setEndX(int newEndX);
-	int getEndY();
+	int getEndY() const;
 	void setEndY(int newEndY);
 	virtual ~Shape() {};
 };

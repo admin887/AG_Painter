@@ -19,7 +19,7 @@ void Tool::setShapeGarage(ShapesGarage &newSG)
 {
 	sg= &newSG;
 }
-bool Tool::getIsSelected()
+bool Tool::getIsSelected() const
 	{
 		return m_isSelected;
 	}

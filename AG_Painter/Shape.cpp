@@ -4,7 +4,7 @@
 
 IMPLEMENT_SERIAL (Shape, CObject, 1)
 
-	bool Shape::getIsSelected()
+	bool Shape::getIsSelected() const
 	{
 		return m_isSelected;
 	}
@@ -12,11 +12,11 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	{
 		m_isSelected= newIsSelected;
 	}
-	COLORREF  Shape::getColorInside()
+	COLORREF  Shape::getColorInside() const
 	{
 		return m_inSideColor;
 	}
-	COLORREF  Shape::getColorOutside()
+	COLORREF  Shape::getColorOutside() const
 	{
 		return m_OutsideColor;
 	}
@@ -28,7 +28,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	{
 		m_OutsideColor= newColorOutside;
 	}
-	int Shape::getWeight()
+	int Shape::getWeight() const
 	{
 		return m_weight;
 	}
@@ -40,7 +40,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 		m_weight=0;	
 	}
 
-	int Shape::getStartX() 
+	int Shape::getStartX() const
 	{
 		return m_startX;
 	}
@@ -48,7 +48,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 	{
 			m_startX= newStartX;
 	}
-	int Shape::getStartY()
+	int Shape::getStartY() const
 	{
 		return m_startY;
 	}
@@ -57,7 +57,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 			m_startY= newStartY;
 	}
 	
-	int Shape::getEndX()
+	int Shape::getEndX() const
 	{
 		return m_endX;
 	}
@@ -66,7 +66,7 @@ IMPLEMENT_SERIAL (Shape, CObject, 1)
 		
 			m_endX= newEndX;
 	}
-	int Shape::getEndY()
+	int Shape::getEndY() const
 	{
 		return m_endY;
 	}

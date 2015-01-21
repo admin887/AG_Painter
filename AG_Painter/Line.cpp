@@ -48,7 +48,7 @@ Line::~Line(void)
 	
 }
 
-Line &Line::operator=(Line &l)
+Line &Line::operator=(const Line &l)
 {
 	setStartX(l.getStartX());
 	setStartY(l.getStartY());
