@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ISelectable.h"
-#include "Colorable.h"
+#include "IColorable.h"
 #include "IWeightable.h"
 #pragma once;
 
